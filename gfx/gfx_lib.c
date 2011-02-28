@@ -212,7 +212,14 @@ void LCD_UpdateMinVolt(uint16_t volt)
 	// y, x
 	// y = rows
 	// x = pixels ?
-	TERMFONT_DisplayString( "Min Volt: 3.45 V", 7, 0 );
+	char buffer [sizeof(uint16_t)*8+1];
+    itoa(volt,buffer,10);
+
+	//TERMFONT_DisplayString( "Min Volt: 3.45 V", 7, 0 );
+	TERMFONT_DisplayString("Min Volt:", 7, 0);
+	TERMFONT_DisplayString(buffer, 7, 30 );
+	TERMFONT_DisplayString("V" , 7, 60 );
+
 }
 
 void LCD_UpdateMaxTemp(uint8_t temp)

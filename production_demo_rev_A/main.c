@@ -458,7 +458,7 @@ static __inline__ void do_cmd(char * s)
 		value = value/2;	// 0.5 % per LSB
 		LCD_UpdateSOC(value);
 
-/*
+
 		// Max Pack temp, byte 3
 		raw_byte = substr(cmd, 11, 2,pnew);
 		MEM_FREE(pnew);
@@ -472,7 +472,6 @@ static __inline__ void do_cmd(char * s)
 		MEM_FREE(spnew);
 		value = xstrtoi(raw_short);
 		LCD_UpdateMinVolt(value);
-*/
 		
 		// Small status line for each frame received. Since ID 630 should
 		// be transmitted once per second, there should be small but visible
