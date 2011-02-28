@@ -1,0 +1,305 @@
+Work in progress to make simple graphical display for EV's.
+
+EV-display part done by Henry Palonen
+
+Most of the work done by Martin Thomas, original README below
+
+----------------------------------------------
+Port of the Atmel AVR DB101 (ATAVRDB101)
+example-application code to the "GNU toolchain"
+
+done by Martin Thomas, Kaiserslautern, Germany
+http://www.siwawi.arubi.uni-kl.de/avr_projects
+<eversmith(at)heizung-thomas(dot)de> or
+<mthomas(at)rhrk(dot)uni-kl(dot)de>
+
+GNU/avr-gcc Port Version 20080301
+
+based on the Atmel's code for IAR EWAVR/ICCAVR
+Atmel cvs tag: release_A_code_20070917
+(download available from atmel.com)
+
+----------------------------------------------
+
+
+
+Used tools for this version of the port:
+----------------------------------------
+
+GNU toolchain: Binutils 2.17, avr-gcc 4.1.2
+and avr-libc 1.4.6 as in WinAVR 20070525
+
+and
+
+AVR-Studio 4.13 SP2
+
+Unix/Linux/OS X users can build with the 
+makefile available in the directory 
+production_demo_rev_A/make_standalone
+
+
+General information:
+--------------------
+
+I'm not working for Atmel so this gcc-port is
+not supported by Atmel. I will try to support
+it as good as I can (send an e-mail).
+
+I tried to keep the source compatible for both 
+compilers by adding a "Compiler Abstraction Layer"
+(CAL). This is a set of preprocessor defines, 
+macros and inline-functions in the file cal.h. 
+
+I have never used the IAR compiler for AVR so I 
+don't know exactly if the IAR-part of the CAL
+implements the "best methods". But I tried to
+create the IAR-part of the CAL so the preprocessed
+source of the port should be very similar to the 
+original one.
+
+The doxygen documentation has been removed from
+this port-package to keep the distribution archive
+small. You can get the documentation with the 
+original source available from atmel.com:
+http://www.atmel.com/dyn/products/tools_card.asp?tool_id=4221
+I did not change any interfaces so the documentation
+is valid for both toolsets.
+
+I marked a few but not all of my modifications 
+with ///mt. Diff with the original source to see 
+everything that has been changed.
+
+
+Enjoy the DB101 gcc-port
+- Martin Thomas
+
+
+TODOs:
+------
+
+- attribute "used" for dummy reads or other method
+  to avoid some warnings (they are currently just 
+  disabled)
+- check for more "missing" volatiles
+- add German umlauts in TERMFONT_fontdata
+
+
+Version History / Diary:
+------------------------
+
+1. March 2008
+
+Just some modification to increase compatiblity
+with IAR-EWARM.
+
+- Added prod_demo.ewp with MISRA-checking disable.
+  File provided by Colin O'Flynn - Thanks.
+  (renamed original to prod_demo.ewp_org)
+- timing_lib.c: changed order of && operation
+  to avoid a MISRA-warning (Rule 33), tested by 
+  Colin O Flynn. Changed marked with 20080301
+- The IAR MISRA checker will still complain on code
+  in forms_lib.c. I had to use some dirty tricks
+  which include casting of function-pointers
+  to get the "traits" working with avr-gcc.
+
+25. Feb. 2008
+
+- Modifications for IAR-EWAVR compatiblity
+  from Kevin Rosenberg. Thanks.
+- IAR build now tested by Kevin Rosenberg and 
+  Colin O'Flynn with MISRA-checking disabled.
+- timinglib.c: "Rework while() statement to 
+  explictly set order of volatile variable access"
+  by Kevin Rosenberg
+- Replaced absolute with relative pathes 
+  in aps-file (again, it seems AVR-Studio
+  sometimes overwrites with absolute pathes)
+- added  -Wno-unused back to gcc-plugin options
+- GNU build tested with AVR-Studio 4.13SP2
+  and (still) WinAVR 5/2007
+- commonn/cal.h: new macros CAL_MAIN and CAL_MAIN_LAST
+  to avaid warning cause by gcc function-attribute 
+  noreturn and to keep support for IAR __task
+- prod_demo/main.c: use CAL_MAIN and CAL_MAIN_LAST
+- Information on current drawn by the DB101 from
+  Colin O'Flynn: "[...] In sleep it's around 1mA. 
+  Normal operation is like 7mA, backlight is around 
+  70mA. But it seems to depend on which DB101 I 
+  use[...]"
+
+
+16. Oct. 2007
+
+- widgets_libc.c/WIDGETS_SelectCtrl_InitCheck():
+  added initialisation for OnCheck. This fixes 
+  an issue when selecting tunes in the "Music Demo"
+  or when using the select widget in own applications.
+  (The issue is also present in the preinstalled
+  firmware and not caused by the GNU tools.)
+- db101_demo.aps: "regenerated" - again
+- song_data.h: "Fur Elise" -> "Fuer Elise"
+  (It's "Für" but umlauts currently not present
+  in the font)
+- makefile_standalone/Makefile: added compiler
+  options -ffunction-sections -fdata-sections
+  and linker-option --gc-sections. This removes
+  unused code from the binary and reduces the size
+  around 14% (currently 67578->58420). But the 
+  disassambly looks strange. You may want to 
+  disable these options for debugging. They are 
+  not enabled in in the AVR Studio worksspace 
+  settings, just in the "standalone" makefile.
+  
+  Note: size of the "raw binary" memory-dump when 
+  reading the flash memory back with avrdude:
+    preinstalled application probaly created
+      with the IAR tools: 59606 bytes 
+    application created with the ported sources
+      and avr-gcc 4.2.1 with unused code removal options
+      and -os: 58420 bytes --> ca. 2% smaller
+
+
+13. Oct. 2007
+
+cal.h: modified license as proposed by Eric Weddington
+updated AVR-Studio workspace
+just replaced package on web-server (still "1st release")
+
+
+12. Oct. 2007
+
+no longer TODO:
+- test with real hardware when available
+
+This says it all. The DB101 is here and I have spent
+a few hours debugging the gnu-port (after a lot
+more hours fighting with commercial ARM and
+AVR projects this has been fun). Thanks again
+to Atmel for sending the board (Upd. 2/2008:
+While the board is a gift from Atmel I have 
+received an invoice from the German costums
+in the meantime (around 40EUR).)
+
+The port should be more or less done. At least I 
+could not find a difference between the preinstalled 
+application and my gcc-port but I have not 
+tested that much. The only unneeded modification 
+is a different "Introduction" message which informs 
+that a gcc-port of the Atmel code is running.
+
+The implementation of the traits ("message 
+handlers") has been a little difficult to 
+transfer to avr-libc "progmem access-style". 
+The modifications for this do not look that nice 
+but hey, it works. JTAGICE MK2 has not been 
+that useful, my old workbench-PC seems to be too
+slow for such a rather large application. But
+the AVR-Studio simulator helped a few times.
+
+It plays "Für Elise" and this is of cause most 
+important...
+
+==> fist public release, timestamp 20071012
+
+Feedback welcome - Have fun
+
+
+10. Oct. 2007
+
+Used _delay_cycles from delay_x_gcc.h for the GCC-part
+of the CAL. So less modifications in the original source 
+needed. delay_x_gcc.h is the copy of the file delay_x.h 
+which has been found to the avrfreaks gcc forum. It has
+been created by Hans-Juergen Heinrichs. Thanks for
+providing it.
+
+
+9. Oct. 2007
+
+removed redundant CAL_pgm (has been alias for CAL_PGM)
+
+
+8. Oct. 2007
+
+minor modifications - still untested with hardware
+no longer TODOs:
+- get rid of the remaining warnings 
+  (maybe just disable or add attribute used)
+  -> fixed origin of all warnings but the
+     warning about "unused variables" (dummy reads)
+     -> just disabled by -wno-unused for now
+- create standalone makefile
+  -> WinARM 5/07 template not realy usable (sources 
+     from different directories)
+     -> using AVR-Studio generated makefile as template 
+        and modified a little bit see:
+        production_demo_rev_A/make_standalone/Makefile
+
+
+7. Oct. 20007
+
+received e-mail from Atmel (Thanks Jacob, Thanks Eric 
+for the arranging the contact): I will get a DB101 to 
+test the gcc-port. Thanks to Atmel for providing it. 
+It seems the Atmel's own gcc-port is not "high priority". 
+So maybe my porting-work will not be just useful for me. 
+Additonaly I can test the full port with the "real" 
+hardware once the DB101 is here and not just parts of 
+it with my own ATmega644/EA DOGM128 prototype.
+
+
+6. Oct. 2007 
+
+Initial porting work. Most of the dirty work
+should be done, no DB101 board here for tests.
+Why am I doing this port?
+Eric Weddington mentioned in the avrfreaks forum
+that Atmel plans to do an own gcc-port. But in a
+current project some parts of the Atmel code 
+(esp. the LCD-handling and "Widgets") might be
+very useful and hopefully save me some time and work.
+So I tried to create an initial port of the
+DB101-code which will be modified/reduced to match 
+the hardware I have here (hopefully the 
+ATmega644P can handle it...). I will try to backport 
+modifications from my project's code into the 
+DB101 code-port if possible.
+
+
+
+
+
+
+Scratchpad - ignore everything below
+
+# mega1281, 7,3MHz, -wno-unused, short-enums *not* enabled
+
+# List C source files here. (C dependencies are automatically generated.)
+# (a) Demo sources:
+SRC = main.c
+SRC += walkabout.c configuart.c flashpics.c gameoflife.c lcdcontrast.c
+SRC += memory.c slideshow.c smokeydemo.c snake.c sounddemo.c terminal.c clock.c
+# (b) Driver sources:
+SRC += ../gfx/s6b1713_driver.c ../gfx/lcd_lib.c ../gfx/popup_lib.c ../gfx_lib.c
+SRC += ../joystick_driver/joystick_driver.c
+SRC += ../power_driver/power_driver.c
+SRC += ../backlight_driver/backlight_driver.c
+SRC += ../fifo_lib/fifo_lib.c
+SRC += ../memblock_lib/memblock_lib.c
+SRC += ../Picture_lib/picture_lib.c
+SRC += ../forms_lib/widgets_lib.c
+SRC += ../forms_lib/forms_lib.c
+SRC += ../forms_lib/dialog_lib.c
+SRC += ../uart_driver/uart_driver.c
+SRC += ../rtc_driver/rtc_driver.c
+SRC += ../timing_lib/timing_lib.c
+SRC += ../termfont_lib/termfont_lib.c
+SRC += ../Sound/sound_driver.c ../Sound/song_lib.c
+SRC += ../terminal_lib/terminal_lib.c
+
+EXTRAINCDIRS  = ../common ../Picture_lib ../power_driver ../rtc_driver ../Sound
+EXTRAINCDIRS += ../termfont_lib ../terminal_lib ../timing_lib ../uart_driver
+EXTRAINCDIRS += ../backlight_driver ../fifo_lib ../forms_lib ../gfx ../img 
+EXTRAINCDIRS += ../joystick_driver ../memblock_lib
+
