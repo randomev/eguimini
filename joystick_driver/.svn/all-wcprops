@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/ecars_now/!svn/ver/136/eGUI/trunk/egui_mini/joystick_driver
+END
+joystick_driver.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/ecars_now/!svn/ver/136/eGUI/trunk/egui_mini/joystick_driver/joystick_driver.h
+END
+joystick_driver.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/ecars_now/!svn/ver/136/eGUI/trunk/egui_mini/joystick_driver/joystick_driver.c
+END

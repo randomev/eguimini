@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/ecars_now/!svn/ver/136/eGUI/trunk/egui_mini/forms_lib
+END
+forms_lib.h
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/ecars_now/!svn/ver/136/eGUI/trunk/egui_mini/forms_lib/forms_lib.h
+END
+widgets_lib.h
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/ecars_now/!svn/ver/136/eGUI/trunk/egui_mini/forms_lib/widgets_lib.h
+END
+dialog_lib.c
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/ecars_now/!svn/ver/136/eGUI/trunk/egui_mini/forms_lib/dialog_lib.c
+END
+dialog_lib.h
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/ecars_now/!svn/ver/136/eGUI/trunk/egui_mini/forms_lib/dialog_lib.h
+END
+forms_lib.c
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/ecars_now/!svn/ver/136/eGUI/trunk/egui_mini/forms_lib/forms_lib.c
+END
+widgets_lib.c
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/ecars_now/!svn/ver/136/eGUI/trunk/egui_mini/forms_lib/widgets_lib.c
+END

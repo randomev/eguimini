@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/ecars_now/!svn/ver/194/eGUI/trunk/egui_mini/utils/can
+END
+can-simulator.rb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/ecars_now/!svn/ver/194/eGUI/trunk/egui_mini/utils/can/can-simulator.rb
+END
+acramr_calc_simple
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/ecars_now/!svn/ver/194/eGUI/trunk/egui_mini/utils/can/acramr_calc_simple
+END
+acramr_calc_simple.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/ecars_now/!svn/ver/194/eGUI/trunk/egui_mini/utils/can/acramr_calc_simple.c
+END
+acramr_rev_calc
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/ecars_now/!svn/ver/194/eGUI/trunk/egui_mini/utils/can/acramr_rev_calc
+END
+acramr_rev_calc.c
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/ecars_now/!svn/ver/194/eGUI/trunk/egui_mini/utils/can/acramr_rev_calc.c
+END
+a.out
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/ecars_now/!svn/ver/194/eGUI/trunk/egui_mini/utils/can/a.out
+END
+acramr_calc
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/ecars_now/!svn/ver/194/eGUI/trunk/egui_mini/utils/can/acramr_calc
+END
+acramr_calc.c
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/ecars_now/!svn/ver/194/eGUI/trunk/egui_mini/utils/can/acramr_calc.c
+END
+simple-simulator.rb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/ecars_now/!svn/ver/194/eGUI/trunk/egui_mini/utils/can/simple-simulator.rb
+END
+simulate.sh
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/ecars_now/!svn/ver/191/eGUI/trunk/egui_mini/utils/can/simulate.sh
+END

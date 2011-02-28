@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/ecars_now/!svn/ver/193/eGUI/trunk/egui_mini/production_demo_rev_A/make_standalone
+END
+db101_demo.elf
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/ecars_now/!svn/ver/193/eGUI/trunk/egui_mini/production_demo_rev_A/make_standalone/db101_demo.elf
+END
+db101_demo.eep
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/ecars_now/!svn/ver/136/eGUI/trunk/egui_mini/production_demo_rev_A/make_standalone/db101_demo.eep
+END
+t
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/ecars_now/!svn/ver/136/eGUI/trunk/egui_mini/production_demo_rev_A/make_standalone/t
+END
+avrdude_read.cmd
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/ecars_now/!svn/ver/136/eGUI/trunk/egui_mini/production_demo_rev_A/make_standalone/avrdude_read.cmd
+END
+db101_demo.map
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/ecars_now/!svn/ver/193/eGUI/trunk/egui_mini/production_demo_rev_A/make_standalone/db101_demo.map
+END
+avrdude_flash.cmd
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/ecars_now/!svn/ver/136/eGUI/trunk/egui_mini/production_demo_rev_A/make_standalone/avrdude_flash.cmd
+END
+db101_demo.lss
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/ecars_now/!svn/ver/193/eGUI/trunk/egui_mini/production_demo_rev_A/make_standalone/db101_demo.lss
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/ecars_now/!svn/ver/193/eGUI/trunk/egui_mini/production_demo_rev_A/make_standalone/Makefile
+END
+db101_demo.hex
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/ecars_now/!svn/ver/193/eGUI/trunk/egui_mini/production_demo_rev_A/make_standalone/db101_demo.hex
+END

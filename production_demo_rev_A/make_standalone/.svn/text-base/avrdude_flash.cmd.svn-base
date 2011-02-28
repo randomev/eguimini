@@ -1,0 +1,1 @@
+avrdude -p atmega1281 -P com1 -c stk500v2 -U flash:w:db101_demo.hex

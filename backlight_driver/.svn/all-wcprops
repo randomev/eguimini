@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ecars_now/!svn/ver/150/eGUI/trunk/egui_mini/backlight_driver
+END
+backlight_driver.c
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/ecars_now/!svn/ver/150/eGUI/trunk/egui_mini/backlight_driver/backlight_driver.c
+END
+backlight_driver.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/ecars_now/!svn/ver/136/eGUI/trunk/egui_mini/backlight_driver/backlight_driver.h
+END

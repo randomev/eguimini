@@ -1,0 +1,383 @@
+/// This file has been prepared for Doxygen automatic documentation generation.
+/*! \file *********************************************************************
+ *
+ * \brief  DB101 main demo application.
+ *
+ * \par Application note:
+ *      AVR482: DB101 Software
+ *
+ * \par Documentation
+ *      For comprehensive code documentation, supported compilers, compiler
+ *      settings and supported devices see readme.html
+ *
+ * \author
+ *      Atmel Corporation: http://www.atmel.com \n
+ *      Support email: avr@atmel.com
+ *
+ * $Revision: 2347 $
+ * $Date: 2007-09-11 00:18:39 -0600 (ti, 11 sep 2007) $
+ * $URL: http://revisor.norway.atmel.com/AppsAVR8/avr482_db101_software_users_guide/tags/release_A_code_20070917/IAR/production_demo_rev_A/main.c $
+ *
+ * Copyright (c) 2006, Atmel Corporation All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice,
+ * this list of conditions and the following disclaimer.
+ *
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ * this list of conditions and the following disclaimer in the documentation
+ * and/or other materials provided with the distribution.
+ *
+ * 3. The name of ATMEL may not be used to endorse or promote products derived
+ * from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY ATMEL ``AS IS'' AND ANY EXPRESS OR IMPLIED
+ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE EXPRESSLY AND
+ * SPECIFICALLY DISCLAIMED. IN NO EVENT SHALL ATMEL BE LIABLE FOR ANY DIRECT,
+ * INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+ * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *****************************************************************************/
+
+#include <cal.h>
+#include <common.h>
+
+#include <lcd_lib.h>
+#include <s6b1713_driver.h>
+#include <joystick_driver.h>
+#include <fifo_lib.h>
+#include <timing_lib.h>
+#include <rtc_driver.h>
+#include <backlight_driver.h>
+#include <dialog_lib.h>
+#include <gfx_lib.h>
+#include <memblock_lib.h>
+#include <picture_lib.h>
+#include <popup_lib.h>
+#include <power_driver.h>
+#include <uart_driver.h>
+
+#include "flashpics.h"
+#include "logo.h"
+
+#include <avr/eeprom.h>
+
+#define SPLASH_SCREEN_SECONDS 3
+
+#define CONFIG_SET_RS232_INTERFACE()  DDRD |= (1 << PD4); PORTD &= ~(1 << PD4);
+#define TERMINAL_RXBUFSIZE 255
+#define TERMINAL_TXBUFSIZE 16
+
+
+TIMING_event_t joystickCallbackEvent;
+
+
+
+#ifdef __GNUC__
+
+char const CAL_PGM_DEF(welcomeTitle[]) = "       eGUI mini";
+
+char const CAL_PGM_DEF(welcomeText[]) =
+	"         by         "
+	"      eCars.Now!    "
+	"                    "
+	"     Open Source    "
+	"      Electric      "
+	"       Vehicle      "
+	"        User        "
+	"      Interface     "
+	"                    "
+	"   For more info    "
+	"      visit         "
+	" www.ecars-now.org  ";
+
+#else
+
+char const CAL_PGM_DEF(welcomeTitle[]) = "Atmel DB101 Demo";
+
+char const CAL_PGM_DEF(welcomeText[]) =
+	"Welcome to the demo "
+	"application for the "
+	"DB101 display kit.  "
+	"Please refer to the "
+	"appnotes AVR481 and "
+	"AVR482 available at "
+	"www.atmel.com/avr   "
+	"for more details.   ";
+#endif
+
+#define APP_COUNT 4
+char const CAL_PGM_DEF(appTitle[]) = "eGUI mini";
+char const CAL_PGM_DEF(app0[]) = "DRIVE!";
+char const CAL_PGM_DEF(app1[]) = "Adjust Display";
+char const CAL_PGM_DEF(app2[]) = "Configure system";
+char const CAL_PGM_DEF(app3[]) = "Demo";
+char const CAL_PGM_DEF(* apps[APP_COUNT]) = { app0, app1, app2, app3 };
+WIDGETS_StaticText_t textWidgets[APP_COUNT];
+
+
+void InitMemory( void );
+
+void SmokeyDemo( void );
+void GameOfLife( void );
+void Snake( void );
+void Clock( void );
+void Slideshow( void );
+void Walkabout( void );
+void ConfigUart( void );
+void SoundDemo( void );
+void Terminal( void );
+void LcdContrast( void );
+
+
+void UnknownError( void )
+{
+	POPUP_MsgBox( 14, 1, 10, "Unknown error!", NULL );
+	for (;;) {}
+}
+
+
+/*** CUSTOM CODE FOR SCREEN DUMP TO USART1 ***/
+static uint8_t lcdPageBuffer[LCD_WIDTH];
+char const CAL_PGM_DEF(xpmHeader[]) =
+		"/* XPM */\r\n"
+		"static char * db101_screen_dump[] = {\r\n"
+		"\"128 64 2 1\",\r\n"
+		"\"   c #FFFFFF\",\r\n"
+		"\".  c #000000\",\r\n";			
+
+void SendChar( char ch )
+{
+	do { /* nothing */ } while ((UCSR1A & (1 << UDRE1)) == 0);
+	UDR1 = ch;
+}
+
+void DumpHeader( void )
+{
+	char const CAL_PGM(* pch) = xpmHeader;
+	char ch;
+
+	while ( ( ch = CAL_pgm_read_char( pch ) ) != '\0' ) {
+		SendChar( ch );
+		pch++;
+	}
+}
+void DumpScreen( void )
+{
+	PRR1 &= ~(1 << PRUSART1);
+	UCSR1B |= (1 << TXEN1);
+	UBRR1 = UART_CALC_UBRR_VALUE(115200);
+	DDRD |= (1 << PD4); PORTD &= ~(1 << PD4); // Turn on RS232.
+	DumpHeader();
+	for (uint8_t row = 0; row < LCD_PAGE_COUNT; ++row) {
+		LCD_ReadPage( lcdPageBuffer, LCD_ROW2PAGE(row), 0, LCD_WIDTH );
+		for (uint8_t subrow = 0; subrow < LCD_PAGE_HEIGHT; ++subrow) {
+			SendChar( '"' );
+			for (uint8_t column = 0; column < LCD_WIDTH; ++column) {
+				if ((lcdPageBuffer[column] & (0x01 << subrow)) != 0x00) {
+					SendChar( '.' );
+				} else {
+					SendChar( ' ' );
+				}
+			}
+			SendChar( '"' );
+			SendChar( '\r' );
+			SendChar( '\n' );
+		}
+	}
+	SendChar( '}' );
+	SendChar( ';' );
+	SendChar( '\r' );
+	SendChar( '\n' );
+}	
+
+CAL_MAIN()
+{
+	int Red=50;
+	int Green=50;
+	int Blue=50;
+	int Contrast=4;
+	int Intensity=254;
+	
+	FIFO_handle_t rxFifo;
+	FIFO_handle_t txFifo;
+
+	FIFO_data_t * rxBuffer = MEM_ALLOC_ARRAY( FIFO_data_t, TERMINAL_RXBUFSIZE );
+	FIFO_data_t * txBuffer = MEM_ALLOC_ARRAY( FIFO_data_t, TERMINAL_TXBUFSIZE );
+
+	// Initialize everything.
+	InitMemory();
+	POWER_Init();
+	LCD_Init();
+	TIMING_Init();
+	RTC_Init();
+	RTC_SetTickHandler( TIMING_TickHandler );
+	JOYSTICK_Init( 100, 50 );
+	TIMING_AddRepCallbackEvent( TIMING_INFINITE_REPEAT, 1, JOYSTICK_PollingHandler, &joystickCallbackEvent );
+
+	CAL_enable_interrupt();
+	
+	// happy startup sound
+	PlaySound(11);
+
+	// Display splash screen, wait for joystick.
+	
+	//1 POWER_EnterIdleSleepMode();
+	
+	//PICTURE_CopyFullscreenFlashToLcd( FLASHPICS_excellenceThroughTechnology );
+	//PICTURE_CopyFullscreenFlashToLcd( FLASHPICS_eCarsLogo );
+	PICTURE_CopyFullscreenFlashToLcd( FLASHPICS_PalonenLABS_128x64px );
+
+	// init backlight
+	BACKLIGHT_Init();
+	Contrast = eeprom_read_word(8);
+	Red = eeprom_read_word(10);
+	Green = eeprom_read_word(12);
+	Blue = eeprom_read_word(14);
+	Intensity = eeprom_read_word(16);
+
+	BACKLIGHT_SetRGB( Red, Green, Blue );
+	BACKLIGHT_SetIntensity(Intensity);
+
+	TIMING_event_t * splashScreenEvent = MEM_ALLOC( TIMING_event_t );
+	if (splashScreenEvent == NULL) { UnknownError(); }
+	TIMING_counter_t volatile splashCounter = 0;
+	TIMING_AddCounterEventAfter( RTC_TICKS_PER_SECOND * SPLASH_SCREEN_SECONDS,
+			&splashCounter, splashScreenEvent );
+	bool exit = false;
+	do {
+		POWER_EnterIdleSleepMode();
+		if (JOYSTICK_GetState() != 0x00) { exit = true; };
+		if (splashCounter != 0) { exit = true; }
+	} while (exit == false);
+
+
+	TIMING_RemoveEvent( splashScreenEvent );
+	MEM_FREE( splashScreenEvent );
+	
+	DELAY_MS(500);
+	
+	LCD_ClrBox(0,0,128,64);
+	
+	// CAN-adapter is connected to RS232-port
+	// enable receive and transmit
+	PRR1 &= ~(1 << PRUSART1); // Enable USART1.
+
+	UART_SetBaudRateValue( 57600 );
+	UART_SetParityMode( UART_PARITY_NONE );
+	UART_SetDataBits( 8 );
+	UART_SetStopBits( 1 );
+	
+	CONFIG_SET_RS232_INTERFACE();
+
+	FIFO_Init( &rxFifo, rxBuffer, TERMINAL_RXBUFSIZE );
+	FIFO_Init( &txFifo, txBuffer, TERMINAL_TXBUFSIZE );
+	
+	UART_Init( &rxFifo, &txFifo );
+	exit = false;	
+	
+	do {
+		uint8_t joystickState = JOYSTICK_GetState();
+		while ((FIFO_HasData( &rxFifo, FIFO_data_t ) == false) && (joystickState == 0x00)) {
+			POWER_EnterIdleSleepMode();
+			joystickState = JOYSTICK_GetState();
+		}
+		
+		if (joystickState != 0x00) {
+			exit = true;
+		}
+		else if (FIFO_HasData( &rxFifo, FIFO_data_t ) == true) {
+			FIFO_data_t charInput;
+			FIFO_GetData( &rxFifo, &charInput );
+			//TERM_ProcessChar( term, charInput );
+		}
+	} while (exit == false);
+	
+	UART_SetRxFifo( NULL );
+	UART_SetTxFifo( NULL );
+
+	MEM_FREE( rxBuffer );
+	MEM_FREE( txBuffer );
+
+	// BATTERY ICON SOC-LEVEL TEST
+	int soc = 0;
+/*	
+	while (1)
+	{	
+		DumpHeader();
+		DELAY_MS(500);
+	}
+*/		
+//	DumpScreen();
+/*
+while (1)
+{
+	SendChar('\r');
+	SendChar('\r');
+
+	SendChar('V');
+	SendChar('\r');
+
+	SendChar('S');
+	SendChar('6');
+	SendChar('\r');
+
+	SendChar('O');
+	SendChar('\r');
+
+	SendChar('t');
+	SendChar('1');
+	SendChar('0');
+	SendChar('0');
+	SendChar('1');
+	SendChar('2');
+	SendChar('3');
+	SendChar('\r');
+	
+	DELAY_MS(200);
+}
+*/	
+	while (1)
+	{	
+		for (soc = 0; soc < 101; soc++)
+		{		
+			LCD_UpdateSOC(soc);
+			DumpScreen();
+			DELAY_MS(200);
+		}
+	}	
+	// DEMO MODE FOR ELECTRIC MOTOR SHOW 2009
+	// COMMENT IF NORMAL MODE IS DESIRED	
+	//	Slideshow();
+
+	// Menu main loop.
+	WIDGETS_id_t appId = 0;
+	for (;;) {
+		appId = DIALOG_SingleChoiceBox_F( appTitle, APP_COUNT, appId, apps, true, textWidgets );
+		switch (appId) {
+			case 0 : Slideshow(); break;
+			case 1 : LcdContrast(); break;
+			case 2 : ConfigSystem(); break;
+			case 3 : Slideshow(); break;
+
+	while ((JOYSTICK_GetState() & (JOYSTICK_LEFT | JOYSTICK_RIGHT)) == 0x00) {
+		//1 POWER_EnterIdleSleepMode();
+	}
+
+			break;
+			
+			default :
+				POPUP_MsgBox( 16, 2, 6, "Operation not\r\nimplemented yet.", NULL );
+				DumpScreen();
+			break;
+		}
+	}
+
+	CAL_MAIN_LAST();
+}

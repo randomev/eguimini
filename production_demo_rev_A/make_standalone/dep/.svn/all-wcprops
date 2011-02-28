@@ -1,0 +1,215 @@
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/ecars_now/!svn/ver/193/eGUI/trunk/egui_mini/production_demo_rev_A/make_standalone/dep
+END
+slideshow.o.d
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/ecars_now/!svn/ver/191/eGUI/trunk/egui_mini/production_demo_rev_A/make_standalone/dep/slideshow.o.d
+END
+configuart.o.d
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/ecars_now/!svn/ver/191/eGUI/trunk/egui_mini/production_demo_rev_A/make_standalone/dep/configuart.o.d
+END
+sound_driver.o.d
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/ecars_now/!svn/ver/191/eGUI/trunk/egui_mini/production_demo_rev_A/make_standalone/dep/sound_driver.o.d
+END
+rtc_driver.o.d
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/ecars_now/!svn/ver/191/eGUI/trunk/egui_mini/production_demo_rev_A/make_standalone/dep/rtc_driver.o.d
+END
+backlight_driver.o.d
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/ecars_now/!svn/ver/191/eGUI/trunk/egui_mini/production_demo_rev_A/make_standalone/dep/backlight_driver.o.d
+END
+memory.o.d
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/ecars_now/!svn/ver/191/eGUI/trunk/egui_mini/production_demo_rev_A/make_standalone/dep/memory.o.d
+END
+gfx_lib.o.d
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/ecars_now/!svn/ver/191/eGUI/trunk/egui_mini/production_demo_rev_A/make_standalone/dep/gfx_lib.o.d
+END
+joystick_driver.o.d
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/ecars_now/!svn/ver/191/eGUI/trunk/egui_mini/production_demo_rev_A/make_standalone/dep/joystick_driver.o.d
+END
+terminal.o.d
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/ecars_now/!svn/ver/191/eGUI/trunk/egui_mini/production_demo_rev_A/make_standalone/dep/terminal.o.d
+END
+s6b1713_driver.o.d
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/ecars_now/!svn/ver/191/eGUI/trunk/egui_mini/production_demo_rev_A/make_standalone/dep/s6b1713_driver.o.d
+END
+main.o.d
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/ecars_now/!svn/ver/193/eGUI/trunk/egui_mini/production_demo_rev_A/make_standalone/dep/main.o.d
+END
+lcd_lib.o.d
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/ecars_now/!svn/ver/191/eGUI/trunk/egui_mini/production_demo_rev_A/make_standalone/dep/lcd_lib.o.d
+END
+walkabout.o.d
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/ecars_now/!svn/ver/191/eGUI/trunk/egui_mini/production_demo_rev_A/make_standalone/dep/walkabout.o.d
+END
+clock.o.d
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/ecars_now/!svn/ver/191/eGUI/trunk/egui_mini/production_demo_rev_A/make_standalone/dep/clock.o.d
+END
+song_lib.o.d
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/ecars_now/!svn/ver/191/eGUI/trunk/egui_mini/production_demo_rev_A/make_standalone/dep/song_lib.o.d
+END
+gameoflife.o.d
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/ecars_now/!svn/ver/191/eGUI/trunk/egui_mini/production_demo_rev_A/make_standalone/dep/gameoflife.o.d
+END
+terminal_lib.o.d
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/ecars_now/!svn/ver/191/eGUI/trunk/egui_mini/production_demo_rev_A/make_standalone/dep/terminal_lib.o.d
+END
+snake.o.d
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/ecars_now/!svn/ver/191/eGUI/trunk/egui_mini/production_demo_rev_A/make_standalone/dep/snake.o.d
+END
+picture_lib.o.d
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/ecars_now/!svn/ver/191/eGUI/trunk/egui_mini/production_demo_rev_A/make_standalone/dep/picture_lib.o.d
+END
+power_driver.o.d
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/ecars_now/!svn/ver/191/eGUI/trunk/egui_mini/production_demo_rev_A/make_standalone/dep/power_driver.o.d
+END
+fifo_lib.o.d
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/ecars_now/!svn/ver/191/eGUI/trunk/egui_mini/production_demo_rev_A/make_standalone/dep/fifo_lib.o.d
+END
+configsystem.o.d
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/ecars_now/!svn/ver/193/eGUI/trunk/egui_mini/production_demo_rev_A/make_standalone/dep/configsystem.o.d
+END
+smokeydemo.o.d
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/ecars_now/!svn/ver/191/eGUI/trunk/egui_mini/production_demo_rev_A/make_standalone/dep/smokeydemo.o.d
+END
+flashpics.o.d
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/ecars_now/!svn/ver/191/eGUI/trunk/egui_mini/production_demo_rev_A/make_standalone/dep/flashpics.o.d
+END
+forms_lib.o.d
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/ecars_now/!svn/ver/191/eGUI/trunk/egui_mini/production_demo_rev_A/make_standalone/dep/forms_lib.o.d
+END
+timing_lib.o.d
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/ecars_now/!svn/ver/191/eGUI/trunk/egui_mini/production_demo_rev_A/make_standalone/dep/timing_lib.o.d
+END
+memblock_lib.o.d
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/ecars_now/!svn/ver/191/eGUI/trunk/egui_mini/production_demo_rev_A/make_standalone/dep/memblock_lib.o.d
+END
+lcdcontrast.o.d
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/ecars_now/!svn/ver/191/eGUI/trunk/egui_mini/production_demo_rev_A/make_standalone/dep/lcdcontrast.o.d
+END
+termfont_lib.o.d
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/ecars_now/!svn/ver/191/eGUI/trunk/egui_mini/production_demo_rev_A/make_standalone/dep/termfont_lib.o.d
+END
+dialog_lib.o.d
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/ecars_now/!svn/ver/191/eGUI/trunk/egui_mini/production_demo_rev_A/make_standalone/dep/dialog_lib.o.d
+END
+uart_driver.o.d
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/ecars_now/!svn/ver/191/eGUI/trunk/egui_mini/production_demo_rev_A/make_standalone/dep/uart_driver.o.d
+END
+popup_lib.o.d
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/ecars_now/!svn/ver/191/eGUI/trunk/egui_mini/production_demo_rev_A/make_standalone/dep/popup_lib.o.d
+END
+widgets_lib.o.d
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/ecars_now/!svn/ver/191/eGUI/trunk/egui_mini/production_demo_rev_A/make_standalone/dep/widgets_lib.o.d
+END
+sounddemo.o.d
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/ecars_now/!svn/ver/191/eGUI/trunk/egui_mini/production_demo_rev_A/make_standalone/dep/sounddemo.o.d
+END
+displaydata.o.d
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/ecars_now/!svn/ver/191/eGUI/trunk/egui_mini/production_demo_rev_A/make_standalone/dep/displaydata.o.d
+END

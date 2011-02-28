@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/ecars_now/!svn/ver/191/eGUI/trunk/egui_mini/Sound
+END
+song_lib.h
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ecars_now/!svn/ver/136/eGUI/trunk/egui_mini/Sound/song_lib.h
+END
+sound_driver.c
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/ecars_now/!svn/ver/136/eGUI/trunk/egui_mini/Sound/sound_driver.c
+END
+song_data.h
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/ecars_now/!svn/ver/191/eGUI/trunk/egui_mini/Sound/song_data.h
+END
+sound_driver.h
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/ecars_now/!svn/ver/136/eGUI/trunk/egui_mini/Sound/sound_driver.h
+END
+song_lib.c
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ecars_now/!svn/ver/136/eGUI/trunk/egui_mini/Sound/song_lib.c
+END

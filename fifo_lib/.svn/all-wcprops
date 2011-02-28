@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/ecars_now/!svn/ver/136/eGUI/trunk/egui_mini/fifo_lib
+END
+fifo_lib.h
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/ecars_now/!svn/ver/136/eGUI/trunk/egui_mini/fifo_lib/fifo_lib.h
+END
+fifo_lib.c
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/ecars_now/!svn/ver/136/eGUI/trunk/egui_mini/fifo_lib/fifo_lib.c
+END
