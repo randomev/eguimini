@@ -365,7 +365,6 @@ static __inline__ void do_cmd(char * s)
   int8_t rc;
   int16_t value=0;
   char * raw_byte;
-  short * raw_short;
 
   if (s[0] == 0)
     return;
@@ -413,81 +412,42 @@ static __inline__ void do_cmd(char * s)
 	//can_addr = sort_of_works_substr(cmd, 1, 3);
 	
 	//free(pnew);
-
-
-	// Layout of normal driving screen:
-	// 
-	//  |----------------|---------|
-	//  | BIG NUMBERS    | BATTERY |
-	//  |--------|-------|  ICON   |
-	//  |3.45 V  | 31 C  |         |
-	//  |--------------------------|
-	// 
-	// All this information is extracted right here from single CAN-frame with address 630h
-	//
-	// Summary values of interest @ CAN ID 630h
-	//
-	// Byte Type 			Desc 								Units per lsb
-	// 0	unsigned char	Pack Stete of Charge				0.5%
-	// 1	unsigned char	Pack State of Function (not in use)	n/a
-	// 2	unsigned char	Pack State of Health				0.5%
-	// 3	unsigned char	Max Pack Temperature				1 deg C
-	// 4-5	short			Min Pack Voltage					1mV
-	// 6-7	short			Max Pack Voltage					1mV
-	 
+	
+	// SOC-level of battery
 	if (strcmp(can_addr, "630") == 0) {
 		wdt_reset();
 		// SOC is byte 0 in 0.5% per LSB
 		// CAN-message is formatted as
-
-		// t63080011223344556677		
-		// ---------------------
-		//          111111111122
-		// 123456789012345678901
-		
+		//
+		// t63081122334455667788
 		// 
 		//printf("630!\n");
 		//char *pnew2 = malloc(3);
 		//raw_byte = substring(5, 7, cmd, raw_byte, sizeof raw_byte);
 		*pnew = MEM_ALLOC(3);
 
-		// SOC, byte 0
+		//raw_byte = sort_of_works_substr(cmd, 5, 2);
+
 		raw_byte = substr(cmd, 5, 2,pnew);
 		MEM_FREE(pnew);
+		//raw_byte = substr(cmd, 5, 2, pnew2);
+
+		//free(pnew2);
 		value = xstrtoi(raw_byte);
 		value = value/2;	// 0.5 % per LSB
 		LCD_UpdateSOC(value);
 
-/*
-		// Max Pack temp, byte 3
-		raw_byte = substr(cmd, 11, 2,pnew);
-		MEM_FREE(pnew);
-		value = xstrtoi(raw_byte);
-		LCD_UpdateMaxTemp(value);
+			// small status line for each character received 		
+			if (la == 0)
+			{
+					LCD_ClrLine(1,63,2,63);
+					la = 1;
+			} else {
+					LCD_SetLine(1,63,2,63);
+					la = 0;
+			}
 		
-		char *spnew = MEM_ALLOC(6);
-
-		// Min Pack Voltage, byte 4-5
-		raw_short = substr(cmd, 11, 4,spnew);
-		MEM_FREE(spnew);
-		value = xstrtoi(raw_short);
-		LCD_UpdateMinVolt(value);
-*/
-		
-		// Small status line for each frame received. Since ID 630 should
-		// be transmitted once per second, there should be small but visible
-		// blinking of few pixels in one of the corners of the display. 		
-		if (la == 0)
-		{
-				LCD_ClrLine(1,63,2,63);
-				la = 1;
-		} else {
-				LCD_SetLine(1,63,2,63);
-				la = 0;
-		}
-		
-	} // Summary values end	
-
+	}	
   }
 
   return;
@@ -619,7 +579,7 @@ static FILE mystdout = FDEV_SETUP_STREAM(uart_putchar, NULL, _FDEV_SETUP_WRITE);
 
 CAL_MAIN()
 {
-	//wdt_enable(WDTO_4S);
+	wdt_enable(WDTO_4S);
 	
 	LCD_UpdateSOC(1);
 
@@ -659,8 +619,8 @@ CAL_MAIN()
 	//DDRD |= (1 << PD4); PORTD &= ~(1 << PD4); // Turn on RS232.
 
 	//USART_Init();
-	// hmm ?
-	CAL_enable_interrupt();
+	
+//	CAL_enable_interrupt();
 	
 	TIMING_AddRepCallbackEvent( TIMING_INFINITE_REPEAT, 1, JOYSTICK_PollingHandler, &joystickCallbackEvent );
 	
@@ -693,6 +653,8 @@ CAL_MAIN()
 	*/
 	
 	LCD_UpdateSOC(10);
+	
+	PlaySound(11);
 
 	// Display splash screen, wait for joystick.
 	
@@ -701,8 +663,6 @@ CAL_MAIN()
 	//PICTURE_CopyFullscreenFlashToLcd( FLASHPICS_excellenceThroughTechnology );
 	//PICTURE_CopyFullscreenFlashToLcd( FLASHPICS_eCarsLogo );
 	PICTURE_CopyFullscreenFlashToLcd( FLASHPICS_PalonenLABS_128x64px );
-	//PICTURE_CopyFullscreenFlashToLcd( FLASHPICS_amperi_logo );
-	
 
 	// init backlight
 	BACKLIGHT_Init();
@@ -714,8 +674,6 @@ CAL_MAIN()
 
 	BACKLIGHT_SetRGB( Red, Green, Blue );
 	BACKLIGHT_SetIntensity(Intensity);
-	
-	PlaySound(11);
 
 	TIMING_event_t * splashScreenEvent = MEM_ALLOC( TIMING_event_t );
 	if (splashScreenEvent == NULL) { UnknownError(); }
@@ -734,7 +692,7 @@ CAL_MAIN()
 	MEM_FREE( splashScreenEvent );
 	
 	DELAY_MS(500);
-
+	
 	LCD_ClrBox(0,0,128,64);
 	
 //	exit = false;	
@@ -752,10 +710,10 @@ CAL_MAIN()
 		else if (FIFO_HasData( &rxFifo, FIFO_data_t ) == true) {
 			FIFO_data_t charInput;
 			FIFO_GetData( &rxFifo, &charInput );
-			TERM_ProcessChar( term, charInput );
+			//TERM_ProcessChar( term, charInput );
 		}
 	} while (exit == false);
-*/
+	*/
 
 //	MEM_FREE( rxBuffer );
 //	MEM_FREE( txBuffer );
@@ -764,47 +722,34 @@ CAL_MAIN()
 //if 	(JOYSTICK_GetState() & (JOYSTICK_ENTER) == 0x00) {
 //	LcdContrast();
 //}
-
-	// DEMO EFFECT - displays just 97 % SOC all the time...
-/*
-	while (1)
-	{
-		LCD_UpdateSOC(97);
-		LCD_UpdateMaxTemp(34);
-		LCD_UpdateMinVolt(32);
-
-		DELAY_MS(200);		
-	}
-*/
-
+	
 	while (1)
  	{
-
 		if (urx_recv) 
 		{	
-
 			cli();
             urx_recv = 0;
             ch = urx;
             sei();
-            // build a command line and execute commands when complete
+            /* build a command line and execute commands when complete */
             recv_input(ch);
 		}
 	}
-
+/*		
 	while (1)
 	{
 		for (soc = 0; soc < 101; soc++)
 		{		
-			//LCD_UpdateSOC(soc);
+			LCD_UpdateSOC(soc);
 			//DumpScreen();
 			//SendChar('1');
 			//SendChar( '\r' );
 			//SendChar( '\n' );
-			printf("123\n");
+
 			DELAY_MS(200);
 		}
 	}	
+*/
 	// DEMO MODE FOR ELECTRIC MOTOR SHOW 2009
 	// COMMENT IF NORMAL MODE IS DESIRED	
 	//	Slideshow();
