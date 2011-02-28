@@ -619,8 +619,8 @@ static FILE mystdout = FDEV_SETUP_STREAM(uart_putchar, NULL, _FDEV_SETUP_WRITE);
 
 CAL_MAIN()
 {
-	//wdt_enable(WDTO_4S);
-	
+	wdt_enable(WDTO_4S);
+
 	LCD_UpdateSOC(1);
 
 	stdout = &mystdout;
@@ -655,26 +655,26 @@ CAL_MAIN()
 	LCD_UpdateSOC(7);
 
 	JOYSTICK_Init( 100, 50 );
-	 
+
 	//DDRD |= (1 << PD4); PORTD &= ~(1 << PD4); // Turn on RS232.
 
 	//USART_Init();
-	// hmm ?
-	CAL_enable_interrupt();
-	
+
+//	CAL_enable_interrupt();
+
 	TIMING_AddRepCallbackEvent( TIMING_INFINITE_REPEAT, 1, JOYSTICK_PollingHandler, &joystickCallbackEvent );
-	
+
 	// happy startup sound
 	LCD_UpdateSOC(8);
 
 	// BATTERY ICON SOC-LEVEL TEST
 	int soc = 0;
-			
+
 	// interrupt enable
 	SREG |= 1<<7;
 
 	LCD_UpdateSOC(9);
-	
+
 	// Init CAN-adapter
 	// few returns to wake up the device
 	/*
@@ -691,18 +691,18 @@ CAL_MAIN()
 	// Open the CAN channel
 	printf("O\r");	// (O)pen the CAN-bus
 	*/
-	
+
 	LCD_UpdateSOC(10);
 
+	PlaySound(11);
+
 	// Display splash screen, wait for joystick.
-	
+
 	//1 POWER_EnterIdleSleepMode();
-	
+
 	//PICTURE_CopyFullscreenFlashToLcd( FLASHPICS_excellenceThroughTechnology );
 	//PICTURE_CopyFullscreenFlashToLcd( FLASHPICS_eCarsLogo );
 	PICTURE_CopyFullscreenFlashToLcd( FLASHPICS_PalonenLABS_128x64px );
-	//PICTURE_CopyFullscreenFlashToLcd( FLASHPICS_amperi_logo );
-	
 
 	// init backlight
 	BACKLIGHT_Init();
@@ -714,8 +714,6 @@ CAL_MAIN()
 
 	BACKLIGHT_SetRGB( Red, Green, Blue );
 	BACKLIGHT_SetIntensity(Intensity);
-	
-	PlaySound(11);
 
 	TIMING_event_t * splashScreenEvent = MEM_ALLOC( TIMING_event_t );
 	if (splashScreenEvent == NULL) { UnknownError(); }
@@ -732,11 +730,11 @@ CAL_MAIN()
 
 	TIMING_RemoveEvent( splashScreenEvent );
 	MEM_FREE( splashScreenEvent );
-	
+
 	DELAY_MS(500);
 
 	LCD_ClrBox(0,0,128,64);
-	
+
 //	exit = false;	
 	/*
 	do {
@@ -752,10 +750,10 @@ CAL_MAIN()
 		else if (FIFO_HasData( &rxFifo, FIFO_data_t ) == true) {
 			FIFO_data_t charInput;
 			FIFO_GetData( &rxFifo, &charInput );
-			TERM_ProcessChar( term, charInput );
+			//TERM_ProcessChar( term, charInput );
 		}
 	} while (exit == false);
-*/
+	*/
 
 //	MEM_FREE( rxBuffer );
 //	MEM_FREE( txBuffer );
@@ -765,29 +763,15 @@ CAL_MAIN()
 //	LcdContrast();
 //}
 
-	// DEMO EFFECT - displays just 97 % SOC all the time...
-/*
-	while (1)
-	{
-		LCD_UpdateSOC(97);
-		LCD_UpdateMaxTemp(34);
-		LCD_UpdateMinVolt(32);
-
-		DELAY_MS(200);		
-	}
-*/
-
 	while (1)
  	{
-
 		if (urx_recv) 
 		{	
-
 			cli();
             urx_recv = 0;
             ch = urx;
             sei();
-            // build a command line and execute commands when complete
+            /* build a command line and execute commands when complete */
             recv_input(ch);
 		}
 	}
