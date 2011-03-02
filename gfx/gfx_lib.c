@@ -213,18 +213,34 @@ void LCD_UpdateMinVolt(uint16_t volt)
 	// y = rows
 	// x = pixels ?
 	char buffer [sizeof(uint16_t)*8+1];
+	int charw=6;
+	int startpos=60;
+	
+	TERMFONT_DisplayString("Min Volt:", 7, 0);
+	
+	// convert to ascii
     itoa(volt,buffer,10);
 
-	//TERMFONT_DisplayString( "Min Volt: 3.45 V", 7, 0 );
-	TERMFONT_DisplayString("Min Volt:", 7, 0);
-	TERMFONT_DisplayString(buffer, 7, 30 );
-	TERMFONT_DisplayString("V" , 7, 60 );
+	TERMFONT_DisplayChar(buffer, 7, startpos );
+	/*
+	TERMFONT_DisplayChar(buffer[0], 7, startpos );
+	TERMFONT_DisplayChar('.', 7, startpos+charw );
+	TERMFONT_DisplayChar(buffer[1], 7, startpos+2*charw );
+	TERMFONT_DisplayChar(buffer[2], 7, startpos+3*charw );
 
+	TERMFONT_DisplayString("V" , 7, startpos+5*charw );
+*/
 }
 
 void LCD_UpdateMaxTemp(uint8_t temp)
 {
-	TERMFONT_DisplayString( "Max Temp: 35 C", 5, 0 );
+	char buffer [sizeof(uint8_t)*8+1];
+    itoa(temp,buffer,10);
+
+	TERMFONT_DisplayString( "Max Temp:", 5, 0 );
+	TERMFONT_DisplayString( buffer, 5, 60 );
+	TERMFONT_DisplayString( "C", 5, 84 );
+
 }
 
 void LCD_UpdateBigNumbers(uint8_t value)

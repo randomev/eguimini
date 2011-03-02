@@ -1161,7 +1161,7 @@ LOAD /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/avr5/libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0xfb1e
+.text           0x00000000     0xfb6e
  *(.vectors)
  .vectors       0x00000000       0xcc /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/crtm1281.o
                 0x00000000                __vectors
@@ -1498,187 +1498,187 @@ LOAD /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/avr5/libgcc.a
                 0x0000e19e      0x166 popup_lib.o
                 0x0000e19e                POPUP_MsgBox
  .text.LCD_UpdateMinVolt
-                0x0000e304       0x64 gfx_lib.o
+                0x0000e304       0x60 gfx_lib.o
                 0x0000e304                LCD_UpdateMinVolt
  .text.LCD_UpdateMaxTemp
-                0x0000e368       0x12 gfx_lib.o
-                0x0000e368                LCD_UpdateMaxTemp
+                0x0000e364       0x66 gfx_lib.o
+                0x0000e364                LCD_UpdateMaxTemp
  .text.LCD_UpdateBigNumbers
-                0x0000e37a      0x1a6 gfx_lib.o
-                0x0000e37a                LCD_UpdateBigNumbers
+                0x0000e3ca      0x1a6 gfx_lib.o
+                0x0000e3ca                LCD_UpdateBigNumbers
  .text.LCD_UpdateSOC
-                0x0000e520       0x62 gfx_lib.o
-                0x0000e520                LCD_UpdateSOC
+                0x0000e570       0x62 gfx_lib.o
+                0x0000e570                LCD_UpdateSOC
  .text.LCD_SetLine
-                0x0000e582       0xd0 gfx_lib.o
-                0x0000e582                LCD_SetLine
+                0x0000e5d2       0xd0 gfx_lib.o
+                0x0000e5d2                LCD_SetLine
  .text.LCD_ClrLine
-                0x0000e652       0xd0 gfx_lib.o
-                0x0000e652                LCD_ClrLine
+                0x0000e6a2       0xd0 gfx_lib.o
+                0x0000e6a2                LCD_ClrLine
  .text.JOYSTICK_SetActiveMode
-                0x0000e722       0x12 joystick_driver.o
+                0x0000e772       0x12 joystick_driver.o
  .text.JOYSTICK_DisableWakeupInterrupt
-                0x0000e734       0x16 joystick_driver.o
+                0x0000e784       0x16 joystick_driver.o
  .text.__vector_9
-                0x0000e74a       0x50 joystick_driver.o
-                0x0000e74a                __vector_9
+                0x0000e79a       0x50 joystick_driver.o
+                0x0000e79a                __vector_9
  .text.JOYSTICK_Init
-                0x0000e79a       0x1e joystick_driver.o
-                0x0000e79a                JOYSTICK_Init
+                0x0000e7ea       0x1e joystick_driver.o
+                0x0000e7ea                JOYSTICK_Init
  .text.JOYSTICK_GetState
-                0x0000e7b8        0x8 joystick_driver.o
-                0x0000e7b8                JOYSTICK_GetState
+                0x0000e808        0x8 joystick_driver.o
+                0x0000e808                JOYSTICK_GetState
  .text.JOYSTICK_PollingHandler
-                0x0000e7c0       0xea joystick_driver.o
-                0x0000e7c0                JOYSTICK_PollingHandler
+                0x0000e810       0xea joystick_driver.o
+                0x0000e810                JOYSTICK_PollingHandler
  .text.POWER_WakeupCallback
-                0x0000e8aa        0x8 power_driver.o
-                0x0000e8aa                POWER_WakeupCallback
+                0x0000e8fa        0x8 power_driver.o
+                0x0000e8fa                POWER_WakeupCallback
  .text.POWER_EnterIdleSleepMode
-                0x0000e8b2        0xa power_driver.o
-                0x0000e8b2                POWER_EnterIdleSleepMode
+                0x0000e902        0xa power_driver.o
+                0x0000e902                POWER_EnterIdleSleepMode
  .text.BACKLIGHT_Init
-                0x0000e8bc       0x48 backlight_driver.o
-                0x0000e8bc                BACKLIGHT_Init
+                0x0000e90c       0x48 backlight_driver.o
+                0x0000e90c                BACKLIGHT_Init
  .text.BACKLIGHT_SetIntensity
-                0x0000e904       0x68 backlight_driver.o
-                0x0000e904                BACKLIGHT_SetIntensity
+                0x0000e954       0x68 backlight_driver.o
+                0x0000e954                BACKLIGHT_SetIntensity
  .text.BACKLIGHT_SetRGB
-                0x0000e96c       0x6e backlight_driver.o
-                0x0000e96c                BACKLIGHT_SetRGB
+                0x0000e9bc       0x6e backlight_driver.o
+                0x0000e9bc                BACKLIGHT_SetRGB
  .text.FIFO_InternalPutData
-                0x0000e9da       0x76 fifo_lib.o
+                0x0000ea2a       0x76 fifo_lib.o
  .text.FIFO_InternalGetData
-                0x0000ea50       0x68 fifo_lib.o
+                0x0000eaa0       0x68 fifo_lib.o
  .text.FIFO_Init
-                0x0000eab8       0x28 fifo_lib.o
-                0x0000eab8                FIFO_Init
+                0x0000eb08       0x28 fifo_lib.o
+                0x0000eb08                FIFO_Init
  .text.FIFO_GetUint8
-                0x0000eae0        0x8 fifo_lib.o
-                0x0000eae0                FIFO_GetUint8
+                0x0000eb30        0x8 fifo_lib.o
+                0x0000eb30                FIFO_GetUint8
  .text.FIFO_Flush
-                0x0000eae8       0x48 fifo_lib.o
-                0x0000eae8                FIFO_Flush
+                0x0000eb38       0x48 fifo_lib.o
+                0x0000eb38                FIFO_Flush
  .text.FIFO_PutUint16
-                0x0000eb30       0x26 fifo_lib.o
-                0x0000eb30                FIFO_PutUint16
+                0x0000eb80       0x26 fifo_lib.o
+                0x0000eb80                FIFO_PutUint16
  .text.FIFO_GetUint16
-                0x0000eb56       0x2c fifo_lib.o
-                0x0000eb56                FIFO_GetUint16
+                0x0000eba6       0x2c fifo_lib.o
+                0x0000eba6                FIFO_GetUint16
  .text.MEMBLOCK_InitManager
-                0x0000eb82       0x12 memblock_lib.o
-                0x0000eb82                MEMBLOCK_InitManager
+                0x0000ebd2       0x12 memblock_lib.o
+                0x0000ebd2                MEMBLOCK_InitManager
  .text.MEMBLOCK_InitBag
-                0x0000eb94       0x86 memblock_lib.o
-                0x0000eb94                MEMBLOCK_InitBag
+                0x0000ebe4       0x86 memblock_lib.o
+                0x0000ebe4                MEMBLOCK_InitBag
  .text.MEMBLOCK_Allocate
-                0x0000ec1a      0x150 memblock_lib.o
-                0x0000ec1a                MEMBLOCK_Allocate
+                0x0000ec6a      0x150 memblock_lib.o
+                0x0000ec6a                MEMBLOCK_Allocate
  .text.MEMBLOCK_Free
-                0x0000ed6a       0xae memblock_lib.o
-                0x0000ed6a                MEMBLOCK_Free
+                0x0000edba       0xae memblock_lib.o
+                0x0000edba                MEMBLOCK_Free
  .text.PICTURE_CopyFullscreenFlashToLcd
-                0x0000ee18       0x28 picture_lib.o
-                0x0000ee18                PICTURE_CopyFullscreenFlashToLcd
+                0x0000ee68       0x28 picture_lib.o
+                0x0000ee68                PICTURE_CopyFullscreenFlashToLcd
  .text.PICTURE_CopyFlashToLcd
-                0x0000ee40       0x5e picture_lib.o
-                0x0000ee40                PICTURE_CopyFlashToLcd
+                0x0000ee90       0x5e picture_lib.o
+                0x0000ee90                PICTURE_CopyFlashToLcd
  .text.FORMS_CalculateStartPages
-                0x0000ee9e       0x4c forms_lib.o
+                0x0000eeee       0x4c forms_lib.o
  .text.FORMS_DrawScrollbar
-                0x0000eeea       0xfc forms_lib.o
+                0x0000ef3a       0xfc forms_lib.o
  .text.FORMS_DrawFocusIndicator
-                0x0000efe6       0x60 forms_lib.o
+                0x0000f036       0x60 forms_lib.o
  .text.FORMS_Draw
-                0x0000f046       0xde forms_lib.o
-                0x0000f046                FORMS_Draw
+                0x0000f096       0xde forms_lib.o
+                0x0000f096                FORMS_Draw
  .text.FORMS_NormalizeLCDScroll
-                0x0000f124       0x1a forms_lib.o
-                0x0000f124                FORMS_NormalizeLCDScroll
+                0x0000f174       0x1a forms_lib.o
+                0x0000f174                FORMS_NormalizeLCDScroll
  .text.__vector_15
-                0x0000f13e       0xda rtc_driver.o
-                0x0000f13e                __vector_15
+                0x0000f18e       0xda rtc_driver.o
+                0x0000f18e                __vector_15
  .text.RTC_Init
-                0x0000f218       0x5e rtc_driver.o
-                0x0000f218                RTC_Init
+                0x0000f268       0x5e rtc_driver.o
+                0x0000f268                RTC_Init
  .text.RTC_SetTickHandler
-                0x0000f276       0x10 rtc_driver.o
-                0x0000f276                RTC_SetTickHandler
+                0x0000f2c6       0x10 rtc_driver.o
+                0x0000f2c6                RTC_SetTickHandler
  .text.TIMING_Init
-                0x0000f286       0x1a timing_lib.o
-                0x0000f286                TIMING_Init
+                0x0000f2d6       0x1a timing_lib.o
+                0x0000f2d6                TIMING_Init
  .text.TIMING_AddEvent
-                0x0000f2a0      0x128 timing_lib.o
+                0x0000f2f0      0x128 timing_lib.o
  .text.TIMING_TickHandler
-                0x0000f3c8      0x12e timing_lib.o
-                0x0000f3c8                TIMING_TickHandler
+                0x0000f418      0x12e timing_lib.o
+                0x0000f418                TIMING_TickHandler
  .text.TIMING_RemoveEvent
-                0x0000f4f6       0x84 timing_lib.o
-                0x0000f4f6                TIMING_RemoveEvent
+                0x0000f546       0x84 timing_lib.o
+                0x0000f546                TIMING_RemoveEvent
  .text.TIMING_AddRepCounterEventAt
-                0x0000f57a       0x40 timing_lib.o
-                0x0000f57a                TIMING_AddRepCounterEventAt
+                0x0000f5ca       0x40 timing_lib.o
+                0x0000f5ca                TIMING_AddRepCounterEventAt
  .text.TIMING_AddCounterEventAt
-                0x0000f5ba       0x44 timing_lib.o
-                0x0000f5ba                TIMING_AddCounterEventAt
+                0x0000f60a       0x44 timing_lib.o
+                0x0000f60a                TIMING_AddCounterEventAt
  .text.TIMING_AddCounterEventAfter
-                0x0000f5fe       0x36 timing_lib.o
-                0x0000f5fe                TIMING_AddCounterEventAfter
+                0x0000f64e       0x36 timing_lib.o
+                0x0000f64e                TIMING_AddCounterEventAfter
  .text.TIMING_AddRepCallbackEventAt
-                0x0000f634       0x44 timing_lib.o
-                0x0000f634                TIMING_AddRepCallbackEventAt
+                0x0000f684       0x44 timing_lib.o
+                0x0000f684                TIMING_AddRepCallbackEventAt
  .text.TIMING_AddCallbackEventAt
-                0x0000f678       0x44 timing_lib.o
-                0x0000f678                TIMING_AddCallbackEventAt
+                0x0000f6c8       0x44 timing_lib.o
+                0x0000f6c8                TIMING_AddCallbackEventAt
  .text.TIMING_AddCallbackEventAfter
-                0x0000f6bc       0x36 timing_lib.o
-                0x0000f6bc                TIMING_AddCallbackEventAfter
+                0x0000f70c       0x36 timing_lib.o
+                0x0000f70c                TIMING_AddCallbackEventAfter
  .text.TIMING_AddRepCallbackEventAfter
-                0x0000f6f2       0x5e timing_lib.o
-                0x0000f6f2                TIMING_AddRepCallbackEventAfter
+                0x0000f742       0x5e timing_lib.o
+                0x0000f742                TIMING_AddRepCallbackEventAfter
  .text.TIMING_AddRepCallbackEvent
-                0x0000f750       0x42 timing_lib.o
-                0x0000f750                TIMING_AddRepCallbackEvent
+                0x0000f7a0       0x42 timing_lib.o
+                0x0000f7a0                TIMING_AddRepCallbackEvent
  .text.TERMFONT_DisplayChar
-                0x0000f792       0x44 termfont_lib.o
-                0x0000f792                TERMFONT_DisplayChar
+                0x0000f7e2       0x44 termfont_lib.o
+                0x0000f7e2                TERMFONT_DisplayChar
  .text.TERMFONT_DisplayString
-                0x0000f7d6       0x34 termfont_lib.o
-                0x0000f7d6                TERMFONT_DisplayString
+                0x0000f826       0x34 termfont_lib.o
+                0x0000f826                TERMFONT_DisplayString
  .text.SOUND_StartAudio
-                0x0000f80a       0x40 sound_driver.o
-                0x0000f80a                SOUND_StartAudio
+                0x0000f85a       0x40 sound_driver.o
+                0x0000f85a                SOUND_StartAudio
  .text.SOUND_PlayAudioTask
-                0x0000f84a       0xb8 sound_driver.o
+                0x0000f89a       0xb8 sound_driver.o
  .text.SOUND_StopAudio
-                0x0000f902       0x2c sound_driver.o
-                0x0000f902                SOUND_StopAudio
+                0x0000f952       0x2c sound_driver.o
+                0x0000f952                SOUND_StopAudio
  .text.SOUND_IsToneBusy
-                0x0000f92e        0x8 sound_driver.o
-                0x0000f92e                SOUND_IsToneBusy
+                0x0000f97e        0x8 sound_driver.o
+                0x0000f97e                SOUND_IsToneBusy
  .text.SONG_CallbackControlTask_F
-                0x0000f936       0xc2 song_lib.o
-                0x0000f936                SONG_CallbackControlTask_F
+                0x0000f986       0xc2 song_lib.o
+                0x0000f986                SONG_CallbackControlTask_F
  .text.SONG_StopTune
-                0x0000f9f8       0x1e song_lib.o
-                0x0000f9f8                SONG_StopTune
+                0x0000fa48       0x1e song_lib.o
+                0x0000fa48                SONG_StopTune
  .text.SONG_StartTune_F
-                0x0000fa16       0x5c song_lib.o
-                0x0000fa16                SONG_StartTune_F
- .text.libgcc   0x0000fa72       0x18 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/avr5/libgcc.a(_udivmodqi4.o)
-                0x0000fa72                __udivmodqi4
- .text.libgcc   0x0000fa8a       0x28 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/avr5/libgcc.a(_udivmodhi4.o)
-                0x0000fa8a                __udivmodhi4
- .text.libgcc   0x0000fab2       0x26 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/avr5/libgcc.a(_divmodhi4.o)
-                0x0000fab2                __divmodhi4
-                0x0000fab2                _div
- .text.libgcc   0x0000fad8       0x44 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/avr5/libgcc.a(_udivmodsi4.o)
-                0x0000fad8                __udivmodsi4
-                0x0000fb1c                . = ALIGN (0x2)
+                0x0000fa66       0x5c song_lib.o
+                0x0000fa66                SONG_StartTune_F
+ .text.libgcc   0x0000fac2       0x18 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/avr5/libgcc.a(_udivmodqi4.o)
+                0x0000fac2                __udivmodqi4
+ .text.libgcc   0x0000fada       0x28 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/avr5/libgcc.a(_udivmodhi4.o)
+                0x0000fada                __udivmodhi4
+ .text.libgcc   0x0000fb02       0x26 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/avr5/libgcc.a(_divmodhi4.o)
+                0x0000fb02                __divmodhi4
+                0x0000fb02                _div
+ .text.libgcc   0x0000fb28       0x44 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/avr5/libgcc.a(_udivmodsi4.o)
+                0x0000fb28                __udivmodsi4
+                0x0000fb6c                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0000fb1c        0x0 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/avr5/libgcc.a(_exit.o)
-                0x0000fb1c                exit
-                0x0000fb1c                _exit
+ .fini9         0x0000fb6c        0x0 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/avr5/libgcc.a(_exit.o)
+                0x0000fb6c                exit
+                0x0000fb6c                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -1697,169 +1697,170 @@ LOAD /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/avr5/libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0000fb1c        0x2 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/avr5/libgcc.a(_exit.o)
+ .fini0         0x0000fb6c        0x2 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/avr5/libgcc.a(_exit.o)
  *(.fini0)
-                0x0000fb1e                _etext = .
+                0x0000fb6e                _etext = .
 
-.data           0x00800200       0x74 load address 0x0000fb1e
+.data           0x00800200       0x70 load address 0x0000fb6e
                 0x00800200                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800200       0x18 main.o
- .data          0x00800218       0x1b gfx_lib.o
+ .data          0x00800218       0x16 gfx_lib.o
  *(.data*)
- .data.la       0x00800233        0x2 main.o
-                0x00800233                la
+ .data.la       0x0080022e        0x2 main.o
+                0x0080022e                la
  .data.Intensity
-                0x00800235        0x2 main.o
-                0x00800235                Intensity
+                0x00800230        0x2 main.o
+                0x00800230                Intensity
  .data.Contrast
-                0x00800237        0x2 main.o
-                0x00800237                Contrast
- .data.Blue     0x00800239        0x2 main.o
-                0x00800239                Blue
- .data.Green    0x0080023b        0x2 main.o
-                0x0080023b                Green
- .data.Red      0x0080023d        0x2 main.o
-                0x0080023d                Red
+                0x00800232        0x2 main.o
+                0x00800232                Contrast
+ .data.Blue     0x00800234        0x2 main.o
+                0x00800234                Blue
+ .data.Green    0x00800236        0x2 main.o
+                0x00800236                Green
+ .data.Red      0x00800238        0x2 main.o
+                0x00800238                Red
  .data.mystdout
-                0x0080023f        0xe main.o
- .data.idx.0    0x0080024d        0x1 main.o
- .data.cmd.1    0x0080024e        0x2 main.o
+                0x0080023a        0xe main.o
+ .data.idx.0    0x00800248        0x1 main.o
+ .data.cmd.1    0x00800249        0x2 main.o
  .data.LCD_topPage
-                0x00800250        0x1 lcd_lib.o
-                0x00800250                LCD_topPage
+                0x0080024b        0x1 lcd_lib.o
+                0x0080024b                LCD_topPage
  .data.JOYSTICK_EventHandler
-                0x00800251        0x2 joystick_driver.o
-                0x00800251                JOYSTICK_EventHandler
+                0x0080024c        0x2 joystick_driver.o
+                0x0080024c                JOYSTICK_EventHandler
  .data.JOYSTICK_doubleClickDelay
-                0x00800253        0x1 joystick_driver.o
-                0x00800253                JOYSTICK_doubleClickDelay
+                0x0080024e        0x1 joystick_driver.o
+                0x0080024e                JOYSTICK_doubleClickDelay
  .data.JOYSTICK_pressAndHoldDelay
-                0x00800254        0x1 joystick_driver.o
-                0x00800254                JOYSTICK_pressAndHoldDelay
+                0x0080024f        0x1 joystick_driver.o
+                0x0080024f                JOYSTICK_pressAndHoldDelay
  .data.JOYSTICK_currentHoldState
-                0x00800255        0x1 joystick_driver.o
-                0x00800255                JOYSTICK_currentHoldState
+                0x00800250        0x1 joystick_driver.o
+                0x00800250                JOYSTICK_currentHoldState
  .data.JOYSTICK_currentState
-                0x00800256        0x1 joystick_driver.o
-                0x00800256                JOYSTICK_currentState
+                0x00800251        0x1 joystick_driver.o
+                0x00800251                JOYSTICK_currentState
  .data.lastSample.0
-                0x00800257        0x1 joystick_driver.o
+                0x00800252        0x1 joystick_driver.o
  .data.pressAndHoldCountdown.1
-                0x00800258        0x8 joystick_driver.o
+                0x00800253        0x8 joystick_driver.o
  .data.doubleClickCountdown.2
-                0x00800260        0x8 joystick_driver.o
+                0x0080025b        0x8 joystick_driver.o
  .data.POWER_wakeupRequested
-                0x00800268        0x1 power_driver.o
+                0x00800263        0x1 power_driver.o
  .data.BACKLIGHT_intensity
-                0x00800269        0x1 backlight_driver.o
-                0x00800269                BACKLIGHT_intensity
+                0x00800264        0x1 backlight_driver.o
+                0x00800264                BACKLIGHT_intensity
  .data.BACKLIGHT_blue
-                0x0080026a        0x1 backlight_driver.o
-                0x0080026a                BACKLIGHT_blue
+                0x00800265        0x1 backlight_driver.o
+                0x00800265                BACKLIGHT_blue
  .data.BACKLIGHT_green
-                0x0080026b        0x1 backlight_driver.o
-                0x0080026b                BACKLIGHT_green
+                0x00800266        0x1 backlight_driver.o
+                0x00800266                BACKLIGHT_green
  .data.BACKLIGHT_red
-                0x0080026c        0x1 backlight_driver.o
-                0x0080026c                BACKLIGHT_red
+                0x00800267        0x1 backlight_driver.o
+                0x00800267                BACKLIGHT_red
  .data.MEMBLOCK_manager
-                0x0080026d        0x5 memblock_lib.o
+                0x00800268        0x5 memblock_lib.o
  .data.toneActive
-                0x00800272        0x1 sound_driver.o
+                0x0080026d        0x1 sound_driver.o
  .data.songPlaying
-                0x00800273        0x1 song_lib.o
+                0x0080026e        0x1 song_lib.o
  *(.rodata)
  *(.rodata*)
  *(.gnu.linkonce.d*)
-                0x00800274                . = ALIGN (0x2)
-                0x00800274                _edata = .
-                0x00800274                PROVIDE (__data_end, .)
+                0x00800270                . = ALIGN (0x2)
+ *fill*         0x0080026f        0x1 00
+                0x00800270                _edata = .
+                0x00800270                PROVIDE (__data_end, .)
 
-.bss            0x00800274     0x1651
-                0x00800274                PROVIDE (__bss_start, .)
+.bss            0x00800270     0x1651
+                0x00800270                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
  .bss.can_addr.2
-                0x00800274        0x2 main.o
+                0x00800270        0x2 main.o
  .bss.joystickCallbackEvent
-                0x00800276        0xf main.o
-                0x00800276                joystickCallbackEvent
- .bss.urx       0x00800285        0x1 main.o
-                0x00800285                urx
- .bss.urx_recv  0x00800286        0x1 main.o
-                0x00800286                urx_recv
+                0x00800272        0xf main.o
+                0x00800272                joystickCallbackEvent
+ .bss.urx       0x00800281        0x1 main.o
+                0x00800281                urx
+ .bss.urx_recv  0x00800282        0x1 main.o
+                0x00800282                urx_recv
  .bss.do_cmdbuf
-                0x00800287       0x14 main.o
+                0x00800283       0x14 main.o
  .bss.recv_input_cmdbuf
-                0x0080029b       0x80 main.o
+                0x00800297       0x80 main.o
  .bss.MEMORY_block0
-                0x0080031b      0x102 memory.o
+                0x00800317      0x102 memory.o
  .bss.MEMORY_block1
-                0x0080041d      0x404 memory.o
+                0x00800419      0x404 memory.o
  .bss.MEMORY_block2
-                0x00800821      0x402 memory.o
+                0x0080081d      0x402 memory.o
  .bss.MEMORY_block3
-                0x00800c23      0xc01 memory.o
+                0x00800c1f      0xc01 memory.o
  .bss.MEMORY_blockBags
-                0x00801824       0x60 memory.o
- .bss.RTC_days  0x00801884        0x1 rtc_driver.o
-                0x00801884                RTC_days
+                0x00801820       0x60 memory.o
+ .bss.RTC_days  0x00801880        0x1 rtc_driver.o
+                0x00801880                RTC_days
  .bss.RTC_hours
-                0x00801885        0x1 rtc_driver.o
-                0x00801885                RTC_hours
+                0x00801881        0x1 rtc_driver.o
+                0x00801881                RTC_hours
  .bss.RTC_minutes
-                0x00801886        0x1 rtc_driver.o
-                0x00801886                RTC_minutes
+                0x00801882        0x1 rtc_driver.o
+                0x00801882                RTC_minutes
  .bss.RTC_seconds
-                0x00801887        0x1 rtc_driver.o
-                0x00801887                RTC_seconds
+                0x00801883        0x1 rtc_driver.o
+                0x00801883                RTC_seconds
  .bss.RTC_ticks
-                0x00801888        0x1 rtc_driver.o
-                0x00801888                RTC_ticks
+                0x00801884        0x1 rtc_driver.o
+                0x00801884                RTC_ticks
  .bss.RTC_TickHandler
-                0x00801889        0x2 rtc_driver.o
-                0x00801889                RTC_TickHandler
+                0x00801885        0x2 rtc_driver.o
+                0x00801885                RTC_TickHandler
  .bss.RTC_DayHandler
-                0x0080188b        0x2 rtc_driver.o
-                0x0080188b                RTC_DayHandler
+                0x00801887        0x2 rtc_driver.o
+                0x00801887                RTC_DayHandler
  .bss.TIMING_queueSize
-                0x0080188d        0x2 timing_lib.o
-                0x0080188d                TIMING_queueSize
+                0x00801889        0x2 timing_lib.o
+                0x00801889                TIMING_queueSize
  .bss.TIMING_firstEvent
-                0x0080188f        0x2 timing_lib.o
-                0x0080188f                TIMING_firstEvent
+                0x0080188b        0x2 timing_lib.o
+                0x0080188b                TIMING_firstEvent
  .bss.TIMING_currentTime
-                0x00801891        0x4 timing_lib.o
-                0x00801891                TIMING_currentTime
+                0x0080188d        0x4 timing_lib.o
+                0x0080188d                TIMING_currentTime
  .bss.TIMING_nextEventTime
-                0x00801895        0x4 timing_lib.o
-                0x00801895                TIMING_nextEventTime
+                0x00801891        0x4 timing_lib.o
+                0x00801891                TIMING_nextEventTime
  .bss.audioTimingEvent
-                0x00801899        0xf sound_driver.o
+                0x00801895        0xf sound_driver.o
  .bss.pSoundfifoHandle
-                0x008018a8        0x2 sound_driver.o
+                0x008018a4        0x2 sound_driver.o
  .bss.pSongFifoHandle
-                0x008018aa        0x2 song_lib.o
+                0x008018a6        0x2 song_lib.o
  .bss.songTimingEvent
-                0x008018ac        0xf song_lib.o
+                0x008018a8        0xf song_lib.o
  .bss.pAudioDataInFlash
-                0x008018bb        0x2 song_lib.o
+                0x008018b7        0x2 song_lib.o
  .bss.pAudioDataStartInFlash
-                0x008018bd        0x2 song_lib.o
+                0x008018b9        0x2 song_lib.o
  *(COMMON)
- COMMON         0x008018bf        0x6 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(iob.o)
-                0x008018bf                __iob
-                0x008018c5                PROVIDE (__bss_end, .)
-                0x0000fb1e                __data_load_start = LOADADDR (.data)
-                0x0000fb92                __data_load_end = (__data_load_start + SIZEOF (.data))
+ COMMON         0x008018bb        0x6 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(iob.o)
+                0x008018bb                __iob
+                0x008018c1                PROVIDE (__bss_end, .)
+                0x0000fb6e                __data_load_start = LOADADDR (.data)
+                0x0000fbde                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x008018c5        0x0
-                0x008018c5                PROVIDE (__noinit_start, .)
+.noinit         0x008018c1        0x0
+                0x008018c1                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x008018c5                PROVIDE (__noinit_end, .)
-                0x008018c5                _end = .
-                0x008018c5                PROVIDE (__heap_start, .)
+                0x008018c1                PROVIDE (__noinit_end, .)
+                0x008018c1                _end = .
+                0x008018c1                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -2067,7 +2068,7 @@ LOAD /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/avr5/libgcc.a
  .debug_pubnames
                 0x00002cd5       0x1c /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(fputc.o)
 
-.debug_info     0x00000000    0x13256
+.debug_info     0x00000000    0x132b1
  *(.debug_info)
  .debug_info    0x00000000      0x36e walkabout.o
  .debug_info    0x0000036e      0x965 configsystem.o
@@ -2085,32 +2086,32 @@ LOAD /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/avr5/libgcc.a
  .debug_info    0x000062af      0x466 s6b1713_driver.o
  .debug_info    0x00006715     0x28ee lcd_lib.o
  .debug_info    0x00009003      0x542 popup_lib.o
- .debug_info    0x00009545      0xe7f gfx_lib.o
- .debug_info    0x0000a3c4      0x422 joystick_driver.o
- .debug_info    0x0000a7e6      0x198 power_driver.o
- .debug_info    0x0000a97e      0x2dc backlight_driver.o
- .debug_info    0x0000ac5a      0x7ea fifo_lib.o
- .debug_info    0x0000b444      0x5c9 memblock_lib.o
- .debug_info    0x0000ba0d      0x552 picture_lib.o
- .debug_info    0x0000bf5f     0x26b8 widgets_lib.o
- .debug_info    0x0000e617     0x10a7 forms_lib.o
- .debug_info    0x0000f6be      0xf15 dialog_lib.o
- .debug_info    0x000105d3      0x3ca rtc_driver.o
- .debug_info    0x0001099d      0x8c3 timing_lib.o
- .debug_info    0x00011260      0xbf4 termfont_lib.o
- .debug_info    0x00011e54      0x3c9 sound_driver.o
- .debug_info    0x0001221d      0x510 song_lib.o
- .debug_info    0x0001272d      0x121 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(strtoul.o)
- .debug_info    0x0001284e      0x131 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(eerd_word.o)
- .debug_info    0x0001297f       0xe4 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(eewr_word.o)
- .debug_info    0x00012a63      0x154 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(iob.o)
- .debug_info    0x00012bb7      0x1af /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(sprintf.o)
- .debug_info    0x00012d66      0x34d /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(vfprintf_std.o)
- .debug_info    0x000130b3       0x39 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(errno.o)
- .debug_info    0x000130ec      0x16a /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(fputc.o)
+ .debug_info    0x00009545      0xeda gfx_lib.o
+ .debug_info    0x0000a41f      0x422 joystick_driver.o
+ .debug_info    0x0000a841      0x198 power_driver.o
+ .debug_info    0x0000a9d9      0x2dc backlight_driver.o
+ .debug_info    0x0000acb5      0x7ea fifo_lib.o
+ .debug_info    0x0000b49f      0x5c9 memblock_lib.o
+ .debug_info    0x0000ba68      0x552 picture_lib.o
+ .debug_info    0x0000bfba     0x26b8 widgets_lib.o
+ .debug_info    0x0000e672     0x10a7 forms_lib.o
+ .debug_info    0x0000f719      0xf15 dialog_lib.o
+ .debug_info    0x0001062e      0x3ca rtc_driver.o
+ .debug_info    0x000109f8      0x8c3 timing_lib.o
+ .debug_info    0x000112bb      0xbf4 termfont_lib.o
+ .debug_info    0x00011eaf      0x3c9 sound_driver.o
+ .debug_info    0x00012278      0x510 song_lib.o
+ .debug_info    0x00012788      0x121 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(strtoul.o)
+ .debug_info    0x000128a9      0x131 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(eerd_word.o)
+ .debug_info    0x000129da       0xe4 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(eewr_word.o)
+ .debug_info    0x00012abe      0x154 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(iob.o)
+ .debug_info    0x00012c12      0x1af /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(sprintf.o)
+ .debug_info    0x00012dc1      0x34d /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(vfprintf_std.o)
+ .debug_info    0x0001310e       0x39 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(errno.o)
+ .debug_info    0x00013147      0x16a /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(fputc.o)
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev   0x00000000     0x30f1
+.debug_abbrev   0x00000000     0x30fe
  *(.debug_abbrev)
  .debug_abbrev  0x00000000       0xfb walkabout.o
  .debug_abbrev  0x000000fb      0x121 configsystem.o
@@ -2128,31 +2129,31 @@ LOAD /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/avr5/libgcc.a
  .debug_abbrev  0x000011aa      0x14b s6b1713_driver.o
  .debug_abbrev  0x000012f5      0x1ed lcd_lib.o
  .debug_abbrev  0x000014e2      0x10c popup_lib.o
- .debug_abbrev  0x000015ee      0x141 gfx_lib.o
- .debug_abbrev  0x0000172f      0x1ce joystick_driver.o
- .debug_abbrev  0x000018fd       0x96 power_driver.o
- .debug_abbrev  0x00001993      0x115 backlight_driver.o
- .debug_abbrev  0x00001aa8      0x142 fifo_lib.o
- .debug_abbrev  0x00001bea      0x1a8 memblock_lib.o
- .debug_abbrev  0x00001d92       0xd6 picture_lib.o
- .debug_abbrev  0x00001e68      0x22a widgets_lib.o
- .debug_abbrev  0x00002092      0x1f8 forms_lib.o
- .debug_abbrev  0x0000228a      0x1e2 dialog_lib.o
- .debug_abbrev  0x0000246c      0x12d rtc_driver.o
- .debug_abbrev  0x00002599      0x19f timing_lib.o
- .debug_abbrev  0x00002738      0x13c termfont_lib.o
- .debug_abbrev  0x00002874      0x143 sound_driver.o
- .debug_abbrev  0x000029b7      0x14d song_lib.o
- .debug_abbrev  0x00002b04       0x91 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(strtoul.o)
- .debug_abbrev  0x00002b95       0xc6 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(eerd_word.o)
- .debug_abbrev  0x00002c5b       0x85 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(eewr_word.o)
- .debug_abbrev  0x00002ce0       0xc7 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(iob.o)
- .debug_abbrev  0x00002da7       0xf4 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(sprintf.o)
- .debug_abbrev  0x00002e9b      0x14d /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(vfprintf_std.o)
- .debug_abbrev  0x00002fe8       0x30 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(errno.o)
- .debug_abbrev  0x00003018       0xd9 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(fputc.o)
+ .debug_abbrev  0x000015ee      0x14e gfx_lib.o
+ .debug_abbrev  0x0000173c      0x1ce joystick_driver.o
+ .debug_abbrev  0x0000190a       0x96 power_driver.o
+ .debug_abbrev  0x000019a0      0x115 backlight_driver.o
+ .debug_abbrev  0x00001ab5      0x142 fifo_lib.o
+ .debug_abbrev  0x00001bf7      0x1a8 memblock_lib.o
+ .debug_abbrev  0x00001d9f       0xd6 picture_lib.o
+ .debug_abbrev  0x00001e75      0x22a widgets_lib.o
+ .debug_abbrev  0x0000209f      0x1f8 forms_lib.o
+ .debug_abbrev  0x00002297      0x1e2 dialog_lib.o
+ .debug_abbrev  0x00002479      0x12d rtc_driver.o
+ .debug_abbrev  0x000025a6      0x19f timing_lib.o
+ .debug_abbrev  0x00002745      0x13c termfont_lib.o
+ .debug_abbrev  0x00002881      0x143 sound_driver.o
+ .debug_abbrev  0x000029c4      0x14d song_lib.o
+ .debug_abbrev  0x00002b11       0x91 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(strtoul.o)
+ .debug_abbrev  0x00002ba2       0xc6 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(eerd_word.o)
+ .debug_abbrev  0x00002c68       0x85 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(eewr_word.o)
+ .debug_abbrev  0x00002ced       0xc7 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(iob.o)
+ .debug_abbrev  0x00002db4       0xf4 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(sprintf.o)
+ .debug_abbrev  0x00002ea8      0x14d /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(vfprintf_std.o)
+ .debug_abbrev  0x00002ff5       0x30 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(errno.o)
+ .debug_abbrev  0x00003025       0xd9 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(fputc.o)
 
-.debug_line     0x00000000     0xae64
+.debug_line     0x00000000     0xae76
  *(.debug_line)
  .debug_line    0x00000000      0x32f walkabout.o
  .debug_line    0x0000032f      0x2dd configsystem.o
@@ -2170,34 +2171,34 @@ LOAD /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/avr5/libgcc.a
  .debug_line    0x00002dd3      0x3dd s6b1713_driver.o
  .debug_line    0x000031b0     0x1974 lcd_lib.o
  .debug_line    0x00004b24      0x2a7 popup_lib.o
- .debug_line    0x00004dcb      0x590 gfx_lib.o
- .debug_line    0x0000535b      0x3c8 joystick_driver.o
- .debug_line    0x00005723      0x2d2 power_driver.o
- .debug_line    0x000059f5      0x330 backlight_driver.o
- .debug_line    0x00005d25      0x4ea fifo_lib.o
- .debug_line    0x0000620f      0x45f memblock_lib.o
- .debug_line    0x0000666e      0x2de picture_lib.o
- .debug_line    0x0000694c     0x12f7 widgets_lib.o
- .debug_line    0x00007c43      0xc1b forms_lib.o
- .debug_line    0x0000885e      0x56a dialog_lib.o
- .debug_line    0x00008dc8      0x3c1 rtc_driver.o
- .debug_line    0x00009189      0x4d0 timing_lib.o
- .debug_line    0x00009659      0x61b termfont_lib.o
- .debug_line    0x00009c74      0x2cd sound_driver.o
- .debug_line    0x00009f41      0x31d song_lib.o
- .debug_line    0x0000a25e      0x20b /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(strtoul.o)
- .debug_line    0x0000a469      0x104 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(eerd_word.o)
- .debug_line    0x0000a56d       0xfe /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(eewr_word.o)
- .debug_line    0x0000a66b       0xfc /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(iob.o)
- .debug_line    0x0000a767      0x126 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(sprintf.o)
- .debug_line    0x0000a88d      0x442 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(vfprintf_std.o)
- .debug_line    0x0000accf       0x5f /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(errno.o)
- .debug_line    0x0000ad2e      0x136 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(fputc.o)
+ .debug_line    0x00004dcb      0x5a2 gfx_lib.o
+ .debug_line    0x0000536d      0x3c8 joystick_driver.o
+ .debug_line    0x00005735      0x2d2 power_driver.o
+ .debug_line    0x00005a07      0x330 backlight_driver.o
+ .debug_line    0x00005d37      0x4ea fifo_lib.o
+ .debug_line    0x00006221      0x45f memblock_lib.o
+ .debug_line    0x00006680      0x2de picture_lib.o
+ .debug_line    0x0000695e     0x12f7 widgets_lib.o
+ .debug_line    0x00007c55      0xc1b forms_lib.o
+ .debug_line    0x00008870      0x56a dialog_lib.o
+ .debug_line    0x00008dda      0x3c1 rtc_driver.o
+ .debug_line    0x0000919b      0x4d0 timing_lib.o
+ .debug_line    0x0000966b      0x61b termfont_lib.o
+ .debug_line    0x00009c86      0x2cd sound_driver.o
+ .debug_line    0x00009f53      0x31d song_lib.o
+ .debug_line    0x0000a270      0x20b /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(strtoul.o)
+ .debug_line    0x0000a47b      0x104 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(eerd_word.o)
+ .debug_line    0x0000a57f       0xfe /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(eewr_word.o)
+ .debug_line    0x0000a67d       0xfc /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(iob.o)
+ .debug_line    0x0000a779      0x126 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(sprintf.o)
+ .debug_line    0x0000a89f      0x442 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(vfprintf_std.o)
+ .debug_line    0x0000ace1       0x5f /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(errno.o)
+ .debug_line    0x0000ad40      0x136 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(fputc.o)
 
 .debug_frame
  *(.debug_frame)
 
-.debug_str      0x00000000     0x4ff0
+.debug_str      0x00000000     0x4fff
  *(.debug_str)
  .debug_str     0x00000000      0x28f walkabout.o
                                 0x2f7 (size before relaxing)
@@ -2231,51 +2232,51 @@ LOAD /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/avr5/libgcc.a
                                 0x615 (size before relaxing)
  .debug_str     0x000025d1       0x8d popup_lib.o
                                 0x481 (size before relaxing)
- .debug_str     0x0000265e      0x176 gfx_lib.o
-                                0x79a (size before relaxing)
- .debug_str     0x000027d4      0x29f joystick_driver.o
+ .debug_str     0x0000265e      0x19a gfx_lib.o
+                                0x7be (size before relaxing)
+ .debug_str     0x000027f8      0x29f joystick_driver.o
                                 0x43e (size before relaxing)
- .debug_str     0x00002a73       0xb4 power_driver.o
+ .debug_str     0x00002a97       0xb4 power_driver.o
                                 0x1fa (size before relaxing)
- .debug_str     0x00002b27      0x10f backlight_driver.o
+ .debug_str     0x00002b4b      0x10f backlight_driver.o
                                 0x238 (size before relaxing)
- .debug_str     0x00002c36      0x1ac fifo_lib.o
+ .debug_str     0x00002c5a      0x1ac fifo_lib.o
                                 0x39c (size before relaxing)
- .debug_str     0x00002de2      0x1c2 memblock_lib.o
+ .debug_str     0x00002e06      0x1c2 memblock_lib.o
                                 0x3ad (size before relaxing)
- .debug_str     0x00002fa4      0x162 picture_lib.o
+ .debug_str     0x00002fc8      0x162 picture_lib.o
                                 0x2bf (size before relaxing)
- .debug_str     0x00003106      0xdfc widgets_lib.o
+ .debug_str     0x0000312a      0xdfc widgets_lib.o
                                0x1557 (size before relaxing)
- .debug_str     0x00003f02      0x3dc forms_lib.o
+ .debug_str     0x00003f26      0x3dc forms_lib.o
                                 0x930 (size before relaxing)
- .debug_str     0x000042de      0x254 dialog_lib.o
+ .debug_str     0x00004302      0x254 dialog_lib.o
                                 0x9c7 (size before relaxing)
- .debug_str     0x00004532      0x134 rtc_driver.o
+ .debug_str     0x00004556      0x134 rtc_driver.o
                                 0x2ba (size before relaxing)
- .debug_str     0x00004666      0x27e timing_lib.o
+ .debug_str     0x0000468a      0x27e timing_lib.o
                                 0x4a8 (size before relaxing)
- .debug_str     0x000048e4      0x330 termfont_lib.o
+ .debug_str     0x00004908      0x31b termfont_lib.o
                                 0x48d (size before relaxing)
- .debug_str     0x00004c14       0xd1 sound_driver.o
+ .debug_str     0x00004c23       0xd1 sound_driver.o
                                 0x3c6 (size before relaxing)
- .debug_str     0x00004ce5      0x122 song_lib.o
+ .debug_str     0x00004cf4      0x122 song_lib.o
                                 0x43a (size before relaxing)
- .debug_str     0x00004e07       0xa9 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(strtoul.o)
+ .debug_str     0x00004e16       0xa9 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(strtoul.o)
                                  0xfc (size before relaxing)
- .debug_str     0x00004eb0       0x30 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(eerd_word.o)
+ .debug_str     0x00004ebf       0x30 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(eerd_word.o)
                                 0x122 (size before relaxing)
- .debug_str     0x00004ee0       0x30 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(eewr_word.o)
+ .debug_str     0x00004eef       0x30 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(eewr_word.o)
                                 0x119 (size before relaxing)
- .debug_str     0x00004f10       0x1a /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(iob.o)
+ .debug_str     0x00004f1f       0x1a /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(iob.o)
                                 0x11d (size before relaxing)
- .debug_str     0x00004f2a       0x35 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(sprintf.o)
+ .debug_str     0x00004f39       0x35 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(sprintf.o)
                                 0x13a (size before relaxing)
- .debug_str     0x00004f5f       0x52 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(vfprintf_std.o)
+ .debug_str     0x00004f6e       0x52 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(vfprintf_std.o)
                                 0x1be (size before relaxing)
- .debug_str     0x00004fb1       0x1d /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(errno.o)
+ .debug_str     0x00004fc0       0x1d /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(errno.o)
                                  0x8e (size before relaxing)
- .debug_str     0x00004fce       0x22 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(fputc.o)
+ .debug_str     0x00004fdd       0x22 /usr/local/CrossPack-AVR-20090415/lib/gcc/avr/3.4.6/../../../../avr/lib/avr5/libc.a(fputc.o)
                                 0x126 (size before relaxing)
 
 .debug_loc
