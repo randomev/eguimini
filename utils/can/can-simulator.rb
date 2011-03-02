@@ -64,6 +64,8 @@ send(sp,"\r")	# flush the FIFO
 send(sp,"\r")	# flush the FIFO	
 puts "Querying version information"
 send(sp,"V\r")		# version number
+puts "Querying errors"
+send(sp,"F\r")		# version number
 send_nowait(sp,"C")	# closing the CAN-bus if active
 puts "Setting speed to 500 Kbit ..."
 send(sp,"S6")
