@@ -487,77 +487,76 @@ static __inline__ void do_cmd(char * s)
 		
 	} // Summary values end	
 
-  }
-
-  return;
-
-
-  //if (strcmp(can_addr, "t630") == 0) {
-	// BMS general info
-//	LCD_UpdateSOC(50);
-    //printf_P(s_usage);
-  //} 
-  
-  if (strcmp(cmd, "h") == 0) {
-    //printf_P(s_usage);
-  }
-/*  else if (strcmp(cmd, "?") == 0) {
-    printf("R=%i:%i\nTU=%i:%i\nTL=%i:%i\n", param[0], param[0], param[1], param[1], param[2], param[2]);
-  }
-  else if (strcmp(cmd, "R?") == 0) {
-    printf("R=%i:%i\n", param[0],param[0]);
-  }
-  else if (strcmp(cmd, "TU?") == 0) {
-    printf("TU=%i:%i\n", param[1],param[1]);
-  }
-  else if (strcmp(cmd, "TL?") == 0) {
-    printf("TL=%i:%i\n", param[2], param[2]);
-  }
-  else if (strcmp(cmd, "R") == 0) {
-    if (args) {
-      int16_t s1, err=0;
-      p = args;
-      s1 = get_num(p, &p, &rc);
-      err += rc;
-      if (err == 0)
-                {               
-                        printf("R=%i:%i\n", s1, s1);
-                        param[0] = s1;
-                }
-    }
-  }
-*/
-  else if (strcmp(cmd, "0F") == 0) {
-        // query of output state
-        //if (output == 0) {
-        //        printf("Down0f\n");
-        //} else {
-        //        printf("Up  0f\n");             
-        //}       
-  }
-  else if (strcmp(cmd, "000O") == 0 || strcmp(cmd, "00#O") == 0) {
-    // charger output OFF, no reply sent
-        //output = 0;
-  }
-  else if (strcmp(cmd, "FF0O") == 0 || strcmp(cmd, "FF#O") == 0) {
-    // charger output ON, no reply sent
-        //output = 1;
-  }
-  else if (strcmp(cmd, "t100110") == 0) {
 	
-	LCD_UpdateSOC(10);
-  }
-  else if (strcmp(cmd, "t100120") == 0) {
-	
-	LCD_UpdateSOC(20);
-  }
-  else {
-     //printf("%s\n", cmd);
+	// Screen contrast and color
+	if (strcmp(can_addr, "7DD") == 0) {
+		// CAN-message is formatted as
 
-    //printf_P(s_invalid);
+		// t88050011223344		
+		// ---------------
+		//           11111
+		// 012345678901234
 
-    //printf_P(s_usage);
+		// byte 0 contrast
+		// byte 1 red
+		// byte 2 green
+		// byte 3 blue
+		// byte 4 intensity
+
+		// byte 0 contrast
+		*pnew = MEM_ALLOC(3);
+		raw_byte = substr(cmd, 5, 2,pnew);
+		MEM_FREE(pnew);
+		value = xstrtoi(raw_byte);		
+		eeprom_write_word(8, value);
+
+		// byte 1 red
+		*pnew = MEM_ALLOC(3);
+		raw_byte = substr(cmd, 7, 2,pnew);
+		MEM_FREE(pnew);
+		value = xstrtoi(raw_byte);		
+		eeprom_write_word(10, value);
+
+		// byte 2 green
+		*pnew = MEM_ALLOC(3);
+		raw_byte = substr(cmd, 9, 2,pnew);
+		MEM_FREE(pnew);
+		value = xstrtoi(raw_byte);		
+		eeprom_write_word(12, value);
+
+		// byte 3 blue
+		*pnew = MEM_ALLOC(3);
+		raw_byte = substr(cmd, 11, 2,pnew);
+		MEM_FREE(pnew);
+		value = xstrtoi(raw_byte);		
+		eeprom_write_word(14, value);
+
+		// byte 3 blue
+		*pnew = MEM_ALLOC(3);
+		raw_byte = substr(cmd, 13, 2,pnew);
+		MEM_FREE(pnew);
+		value = xstrtoi(raw_byte);		
+		eeprom_write_word(16, value);
+		
+		Contrast = eeprom_read_word((uint16_t*)8);
+		Red = eeprom_read_word((uint16_t*)10);
+		Green = eeprom_read_word((uint16_t*)12);
+		Blue = eeprom_read_word((uint16_t*)14);
+		Intensity = eeprom_read_word((uint16_t*)16);
+
+		BACKLIGHT_SetRGB( Red, Green, Blue );
+		BACKLIGHT_SetIntensity(Intensity);
+
+		TERMFONT_DisplayString(".Display adjusted.", 7, 0);
+		
+		DELAY_MS(500);
+		
+		LCD_ClrBox(0,0,128,64);
+
+	} // Summary values end	
+
   }
+
   return;
 }
 
