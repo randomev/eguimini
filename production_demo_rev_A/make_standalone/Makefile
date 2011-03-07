@@ -227,6 +227,11 @@ upload:
 	$(AVRDUDE) -e -c $(AVRDUDE_PROGRAMMERID)   \
 	 -p $(PROGRAMMER_MCU) -P $(AVRDUDE_PORT)        \
 	 -U flash:w:$(HEXROMTRG)
+
+uploadnoverify: 
+	$(AVRDUDE) -e -c $(AVRDUDE_PROGRAMMERID)   \
+	 -p $(PROGRAMMER_MCU) -P $(AVRDUDE_PORT)        \
+	 -V -U flash:w:$(HEXROMTRG)
 	 
 
 

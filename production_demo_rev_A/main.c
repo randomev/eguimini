@@ -428,7 +428,7 @@ static __inline__ void do_cmd(char * s)
 	// Summary values of interest @ CAN ID 630h
 	//
 	// Byte Type 			Desc 								Units per lsb
-	// 0	unsigned char	Pack Stete of Charge				0.5%
+	// 0	unsigned char	Pack State of Charge				0.5%
 	// 1	unsigned char	Pack State of Function (not in use)	n/a
 	// 2	unsigned char	Pack State of Health				0.5%
 	// 3	unsigned char	Max Pack Temperature				1 deg C
@@ -701,7 +701,7 @@ CAL_MAIN()
 
 	//PICTURE_CopyFullscreenFlashToLcd( FLASHPICS_excellenceThroughTechnology );
 	//PICTURE_CopyFullscreenFlashToLcd( FLASHPICS_eCarsLogo );
-	PICTURE_CopyFullscreenFlashToLcd( FLASHPICS_PalonenLABS_128x64px );
+//	PICTURE_CopyFullscreenFlashToLcd( FLASHPICS_PalonenLABS_128x64px );
 
 	// init backlight
 	BACKLIGHT_Init();
@@ -713,7 +713,7 @@ CAL_MAIN()
 
 	BACKLIGHT_SetRGB( Red, Green, Blue );
 	BACKLIGHT_SetIntensity(Intensity);
-
+/*
 	TIMING_event_t * splashScreenEvent = MEM_ALLOC( TIMING_event_t );
 	if (splashScreenEvent == NULL) { UnknownError(); }
 	TIMING_counter_t volatile splashCounter = 0;
@@ -731,7 +731,7 @@ CAL_MAIN()
 	MEM_FREE( splashScreenEvent );
 
 	DELAY_MS(500);
-
+*/
 	LCD_ClrBox(0,0,128,64);
 
 //	exit = false;	
@@ -761,6 +761,17 @@ CAL_MAIN()
 //if 	(JOYSTICK_GetState() & (JOYSTICK_ENTER) == 0x00) {
 //	LcdContrast();
 //}
+	int value=0;
+	while (1)
+	{
+		value++;
+		LCD_UpdateMinVolt(value);		
+		LCD_UpdateMaxTemp(value);		
+
+		DELAY_MS(550);
+		if (value>19)
+			value=0;
+	}
 
 	while (1)
  	{

@@ -221,24 +221,41 @@ void LCD_UpdateMinVolt(uint16_t volt)
 	// convert to ascii
     itoa(volt,buffer,10);
 
-	TERMFONT_DisplayChar(buffer, 7, startpos );
-	/*
-	TERMFONT_DisplayChar(buffer[0], 7, startpos );
-	TERMFONT_DisplayChar('.', 7, startpos+charw );
-	TERMFONT_DisplayChar(buffer[1], 7, startpos+2*charw );
-	TERMFONT_DisplayChar(buffer[2], 7, startpos+3*charw );
+	//TERMFONT_DisplayChar(buffer[0], 7, startpos );
+	
+	if (volt<10)
+	{
+		// leading zero
+		TERMFONT_DisplayChar('0', 7, startpos );
+		TERMFONT_DisplayChar('.', 7, startpos+charw );
+		TERMFONT_DisplayChar(buffer[0], 7, startpos+2*charw );
+	} else {
+		TERMFONT_DisplayChar(buffer[0], 7, startpos );
+		TERMFONT_DisplayChar('.', 7, startpos+charw );
+		TERMFONT_DisplayChar(buffer[1], 7, startpos+2*charw );
+		TERMFONT_DisplayChar(buffer[2], 7, startpos+3*charw );
+	}
 
-	TERMFONT_DisplayString("V" , 7, startpos+5*charw );
-*/
+	TERMFONT_DisplayString("V" , 7, startpos+4*charw );
+
 }
 
 void LCD_UpdateMaxTemp(uint8_t temp)
 {
 	char buffer [sizeof(uint8_t)*8+1];
     itoa(temp,buffer,10);
-
+	
 	TERMFONT_DisplayString( "Max Temp:", 5, 0 );
-	TERMFONT_DisplayString( buffer, 5, 60 );
+
+	if (temp<10)
+	{
+		// erase old content
+		TERMFONT_DisplayString("    ",5,66);
+		TERMFONT_DisplayString(buffer,5,66);
+	} else {
+		TERMFONT_DisplayString( buffer, 5, 66 );
+	}
+	
 	TERMFONT_DisplayString( "C", 5, 84 );
 
 }
