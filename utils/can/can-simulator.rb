@@ -115,7 +115,7 @@ send(sp,"O")
 	#send(sp,"t6408" + soc_s + "64C8130CD60CEE")
 	#send(sp,"t6508" + soc_s + "64C8130CD60CEE")
 	#send(sp,soc_s + soc_s + "\r\n")
-	puts soc_s
+	#puts soc_s
 	sleep 0.1;
   end
 #}
