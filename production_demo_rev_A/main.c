@@ -468,7 +468,7 @@ static __inline__ void do_cmd(char * s)
 		char *spnew = MEM_ALLOC(6);
 
 		// Min Pack Voltage, byte 4-5
-		raw_short = substr(cmd, 11, 4,spnew);
+		raw_short = substr(cmd, 13, 4,spnew);
 		MEM_FREE(spnew);
 		value = xstrtoi(raw_short);
 		LCD_UpdateMinVolt(value);
@@ -761,17 +761,6 @@ CAL_MAIN()
 //if 	(JOYSTICK_GetState() & (JOYSTICK_ENTER) == 0x00) {
 //	LcdContrast();
 //}
-	int value=0;
-	while (1)
-	{
-		value++;
-		LCD_UpdateMinVolt(value);		
-		LCD_UpdateMaxTemp(value);		
-
-		DELAY_MS(550);
-		if (value>19)
-			value=0;
-	}
 
 	while (1)
  	{
@@ -785,48 +774,6 @@ CAL_MAIN()
             recv_input(ch);
 		}
 	}
-
-	while (1)
-	{
-		for (soc = 0; soc < 101; soc++)
-		{		
-			//LCD_UpdateSOC(soc);
-			//DumpScreen();
-			//SendChar('1');
-			//SendChar( '\r' );
-			//SendChar( '\n' );
-			printf("123\n");
-			DELAY_MS(200);
-		}
-	}	
-	// DEMO MODE FOR ELECTRIC MOTOR SHOW 2009
-	// COMMENT IF NORMAL MODE IS DESIRED	
-	//	Slideshow();
-	/*
-	WIDGETS_id_t appId = 0;
-
-	// Menu main loop.
-	for (;;) {
-		appId = DIALOG_SingleChoiceBox_F( appTitle, APP_COUNT, appId, apps, true, textWidgets );
-		switch (appId) {
-			case 0 : Slideshow(); break;
-			case 1 : LcdContrast(); break;
-			case 2 : ConfigSystem(); break;
-			case 3 : Slideshow(); break;
-
-	while ((JOYSTICK_GetState() & (JOYSTICK_LEFT | JOYSTICK_RIGHT)) == 0x00) {
-		//1 POWER_EnterIdleSleepMode();
-	}
-
-			break;
-			
-			default :
-				POPUP_MsgBox( 16, 2, 6, "Operation not\r\nimplemented yet.", NULL );
-				DumpScreen();
-			break;
-		}
-	}
-*/
 
 	CAL_MAIN_LAST();
 }

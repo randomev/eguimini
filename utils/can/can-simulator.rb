@@ -78,8 +78,8 @@ send(sp,"O")
 #t10021133
   soc = 0
   puts("Simulating values ...\n")
-  volt=2.9
-  temp=-15
+  volt=1700
+  temp=1
   while (1)
       # endless loop
 	soc = soc + 1
@@ -88,26 +88,26 @@ send(sp,"O")
 	end
 	soc_s = "%02x" % soc
 
-        volt = volt + 0.01
-        if (volt>4.2)
-                volt = 2.9
+        volt = volt + 1
+        if (volt>4200)
+                volt = 1700
         end
-        temp = temp + 0.1
-        
+        temp = temp + 1
+        temp = temp.to_i
         if (temp>65)
-                temp = -15
+                temp = 1
         end
 
         soc_s = "%02x" % soc
         temp_s = "%02x" % temp
-        v = volt*1000
-        volt_s = "%04x" % v
+
+        volt_s = "%04x" % volt
 
         # str = "t6301" + soc_s + "64C8130CD60CEE"
-        str = "t6301" + soc_s + temp_s + temp_s + volt_s
+        str = "t6308" + soc_s + "00" + "99" + temp_s +  volt_s + "FFFF"
         # "64C8130CD60CEE"
 
-        # puts "Sending V: " + volt.to_s + " T: " + temp.to_s + " SOC: " + soc.to_s
+        puts "Sending V: " + volt.to_s + " T: " + temp.to_s + " SOC: " + soc.to_s
         #+ str 
  	puts str
 	send(sp, str)
